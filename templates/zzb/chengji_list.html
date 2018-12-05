@@ -1,0 +1,102 @@
+{% load static %}
+{% load sweat_change %}
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-mgt.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/WdatePicker.css' %}" />
+<title>准考证查询</title>
+    {% block js %}{% endblock %}
+</head>
+
+<body>
+<div class="title"><h2>成绩查询</h2></div>
+    <script>
+        function checkexcel() {
+            var filePath = $("#file").val();
+            if("" != filePath){
+
+    	        //var fileType = getFileType(filePath);
+    	        //判断上传的附件是否为图片
+                fileType = filePath.substring(filePath.indexOf("."));
+            if(".xls"!=fileType &&  ".xlsx"!=fileType){
+    		        $("#file").val("");
+    		            alert("请上传excel文件！");
+    		            return false;
+    	    }
+    	    else{
+    		//获取附件大小（单位：KB）
+    		    var fileSize = document.getElementById("file").files[0].size / 1024;
+                if(fileSize > 10240){
+                    $("#file").val("");
+            	    alert("文件大小不能超过10MB");
+            	    return false;
+                }
+    	    }
+        }
+        }
+
+    </script>
+<div class="table-box">
+    <form method="post" action="{% url 'zzb:chengji_list' %}" enctype="multipart/form-data">{% csrf_token %}
+        <input id="file" type="file" onchange="checkexcel()" name="chengji_file" placeholder="导入成绩" />
+        <input type="submit" value="提交" />
+    </form>
+</div>
+<div class="pagination ue-clear"></div>
+<div class="table-box">
+	<table>
+     	<thead>
+        	<tr>
+            	<th class="num">序号</th>
+                <th class="time">报考人</th>
+                <th class="time">准考证</th>
+                <th class="time">笔试成绩</th>
+                <th class="time">排名</th>
+                <th class="process">是否进入笔试</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for joinjob in joinjoblist %}
+        	<tr>
+            	<td class="num">{{ forloop.counter }}</td>
+                <th class="time">{{ joinjob.user.name }}</th>
+                <td class="time">{{ joinjob.zkzh }}</td>
+                <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.score }}</td>
+                <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.note}}</td>
+                <td class="process">
+                    {{ joinjob.state }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<table>
+    <tr >
+        <td style="text-align: right;">
+            共&nbsp;<b>{{ pageDict.allCount }}</b>&nbsp;项&nbsp;&nbsp;
+            {% ifnotequal pageDict.nowPage 1 %}
+            <a href="?pageType=last&nowPage={{ pageDict.nowPage }}">上一页</a>
+            {% endifnotequal %}
+            &nbsp;&nbsp;
+            {{ pageDict.nowPage }}/{{ pageDict.allPage }}
+            &nbsp;&nbsp;
+            {% ifnotequal pageDict.nowPage pageDict.allPage %}
+            <a href="?pageType=next&nowPage={{ pageDict.nowPage }}">下一页</a>
+            {% endifnotequal %}
+        </td>
+    </tr>
+</table>
+</div>
+
+<div class="pagination ue-clear"></div>
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+
+</html>

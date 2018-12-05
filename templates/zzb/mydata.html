@@ -1,0 +1,321 @@
+﻿{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{% static 'zzb/css/base.css'%}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-reg.css'%}" />
+</head>
+
+<body>
+<div class="title"><h2>个人资料</h2></div>
+<form name='mydata' action="{% url 'zzb:mydata' %}" method="post" onsubmit="return checksubmit()" enctype="multipart/form-data">{% csrf_token %}
+<div class="main">
+    <img src="{{ userextend.user.logo }}">
+    <p class="short-input ue-clear">
+    	<label>*头像：</label>
+        {% if userextend.user.logo %}
+            <input id="file" type="file" onchange="checkimg()" name="logo" placeholder="" />
+        {% else %}
+            <input id="file" type="file" onchange="checkimg()" required="required" name="logo" placeholder="上传本人近期免冠2寸正面证件电子照片。" />注：请上传本人近期免冠2寸正面证件电子照片。
+        {% endif %}
+        <span style="color: red;"><em>*</em>注：请上传本人近期免冠2寸正面证件电子照片。照片上传规格：上传jpg格式，300像素（高）x 215像素（宽），图像大小不能超过30Kb。</span>
+    </p>
+    <script>
+        function checkimg() {
+            var filePath = $("#file").val();
+            if("" != filePath){
+
+    	        //var fileType = getFileType(filePath);
+    	        //判断上传的附件是否为图片
+                fileType = filePath.substring(filePath.indexOf("."));
+            if(".jpg"!=fileType &&  ".JPG"!=fileType){
+    		        $("#file").val("");
+    		            alert("请上传JPG格式的图片");
+    		            return false;
+    	    }
+    	    else{
+    		//获取附件大小（单位：KB）
+    		    var fileSize = document.getElementById("file").files[0].size / 1024;
+                if(fileSize > 30 || fileSize < 1){
+                    $("#file").val("");
+            	    alert("图片大小不能超过30KB");
+            	    return false;
+                }
+    	    }
+        }
+        }
+        
+    </script>
+    <p class="short-input ue-clear">
+    	<label>*姓名：</label>
+        <input type="text" required="required" name="name" placeholder=""  value="{{ userextend.name }}"/>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*性别：</label>
+        	<select name="sex" required="required">
+                {% if userextend.sex %}
+                    <option value = "{{ userextend.sex }}"  selected = "selected" >{{ userextend.sex }}</option >
+                {% else %}
+                    <option value="" selected="selected"> </option>
+                {% endif %}
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*民族：</label>
+        <input type="text" required="required" name="minzu" placeholder="例如：汉族"  value="{{ userextend.minzu }}"/></p>
+
+    <p class="short-input ue-clear">
+    	<label>*出生年月：</label>
+        <input type="text"  required="required" name="chusheng" placeholder="来文时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{ userextend.chusheng }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*籍贯：</label>
+        <input type="text" required="required" name="jiguan" placeholder="" value="{{ userextend.jiguan }}"/>
+{#        <span style="color: red;"><em>*</em>备注：东莞市的，写 ** 镇(街道) ** 社区(村) ；非东莞市的，写 ** 省 ** 市 。</span>#}
+    <span style="color: red;"><em>*</em>备注：请填写“大朗镇**村”。</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*政治面貌：</label>
+{#        <input type="text" name="mianmao" placeholder="例如：群众、党员、团员"  value="{{ userextend.mianmao }}"/>#}
+        <select name="mianmao" required="required">
+                {% if userextend.mianmao %}
+                    <option value = "{{ userextend.mianmao }}" >{{ userextend.mianmao }}</option >
+                {% else %}
+                    <option value=""></option>
+                {% endif %}
+            <option value="群众">群众</option>
+            <option value="中共党员">中共党员</option>
+            <option value="预备党员">预备党员</option>
+            <option value="团员">团员</option>
+            <option value="无党派人士">无党派人士</option>
+        </select>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*现户籍地：</label>
+        <input type="text" required="required" name="huji" placeholder="" value="{{ userextend.huji }}"/>
+        <span style="color: red;"><em>*</em>备注：东莞市的，写 ** 镇(街道) ** 社区(村) ；非东莞市的，写 ** 省 ** 市 。</span>
+    </p>
+
+
+    <p class="short-input ue-clear">
+    	<label>婚姻状况：</label>
+        <input type="text" name="hunyin" required='required'placeholder="例如：未婚、已婚、丧偶、离婚。" value="{{ userextend.hunyin }}"/>
+          <span style="color: red;"><em>*</em>例如：未婚、已婚、丧偶、离婚。</span>
+    </p>
+        <p class="short-input ue-clear">
+    	<label>*身份证号码：</label>
+        <input readonly="readonly" type="text" name="idcard" placeholder="" value="{{ userextend.idcard }}" />
+    </p>
+    <p class="short-input ue-clear">
+    	<label>*联系电话：</label>
+        <input type="text" required="required" id="dianhua" name="dianhua" onchange="checkMobile()"  placeholder="" value="{{ userextend.phone }}"/>
+    </p>
+<script>
+       function checkMobile()
+   {
+       var re=/^1\d{10}$/;
+       var phone = document.getElementById("dianhua");
+       if(re.test(phone.value))
+       {
+          return true;
+       }else
+       {
+          alert("错误手机号码！");
+          phone.value = "";
+       }
+   }
+</script>
+    <p class="long-input ue-clear">
+    	<label>通讯地址：</label>
+        <input type="text" name="tongxun" placeholder="" value="{{ userextend.tongxun }}"/>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>邮编：</label>
+        <input type="text" name="youbian" placeholder="例如：523770"  value="{{ userextend.youbian }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>*毕业院校：</label>
+        <input type="text" required="required" name="xuexiao" placeholder="" value="{{ userextend.xuexiao }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>*毕业时间：</label>
+        <input type="text"  required="required" name="biye" placeholder="例如：2010-7-1" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{ userextend.biye }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*所学专业：</label>
+        <input type="text" required="required" name="zhuanye" placeholder="" value="{{ userextend.zhuanye }}"/>
+        <span style="color: red;"><em>*</em>备注：必须跟毕业证书一致</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*学历及学位：</label>
+        <input type="text"  required="required" name="xueli" placeholder="" value="{{ userextend.xueli }}"/>
+        <span style="color: red;"><em>*</em>例如：本科法学学士</span>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>外语水平：</label>
+        <input type="text" name="waiyu" placeholder="" value="{{ userextend.waiyu }}"/>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>计算机水平：</label>
+        <input type="text" name="jisuanji" placeholder="" value="{{ userextend.jisuanji }}"/>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*现工作单位及职务：</label>
+        <input type="text" required="required" name="danwei" placeholder="" value="{{ userextend.danwei }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>单位性质：</label>
+        <input type="text" name="xingzhi" placeholder="" value="{{ userextend.xingzhi }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>裸眼视力：</label>
+        <input type="text" name="luoshi" placeholder="" value="{{ userextend.luoshi }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>矫正视力：</label>
+        <input type="text" name="jiaozheng" placeholder="" value="{{ userextend.jiaozheng }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>身高：</label>
+        <input type="text" name="shengao" placeholder="" value="{{ userextend.shengao }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>专业技术资格：</label>
+        <input type="text" name="jishu" placeholder="" value="{{ userextend.jishu }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>职业资格：</label>
+        <input type="text" name="zhiye1" placeholder="" value="{{ userextend.zhiye1 }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>执业资格：</label>
+        <input type="text" name="zhiye2" placeholder="" value="{{ userextend.zhiye2 }}"/>
+    </p>
+    <p class="short-input ue-clear">
+{#    	<label>大学曾担任职务：</label>#}
+        <label>基层工作情况及考核结果:</label>
+        <input type="text" name="daxue" placeholder="" value="{{ userextend.daxue }}"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label><em style="color: red;">*(必填项)</em>学习、工作经历 （何年何月至何年何月在何地、何单位工作或学习、任何职，从中学开始，按时间先后顺序填写） ：</label>
+        <textarea  placeholder="" name="jingli">{{ userextend.jingli|safe }}</textarea>
+        <span style="float:left;color: red;"><em>*</em>备注：除了读书时间可间断，此栏日期一定要前接后；凡有在职学历提高的，务必填写，并说明学历专业。</br>
+        例如：1993.09-1996.07  在东莞市实验中学学习，高中毕业</br>
+        1996.09-2000.07  在东莞理工学院学习会计专业学习，本科毕业，获会计学学士</br>
+        2000.07-2004.08  中国银行大朗支行客户经理</br>
+        （其间：2001.06-2002.05 在华南师范大学工商管理专业学习，获管理硕士学位）</br>
+        2004.08-2012.03  东莞市横沥镇**办聘员</br>
+        （其间：2007.07取得会计师中级职称资格）</br>
+        2012.03-现在     东莞市大朗镇**办聘员</br>
+        备注：（注意：除了读书时间可间断，此栏日期一定要前接后，即：上一行为：2004.08-2006.08下一行为：2006.08-2007.05。</br>
+
+        </span>
+    </p>
+    <p class="long-input ue-clear">
+    	<label><em style="color: red;">*(必填项)</em>家庭成员及主要社会关系：</label>
+        <textarea  placeholder="姓名，与本人关系，工作单位及职务，户籍所在地。" name="guanxi">{{ userextend.guanxi|safe }}</textarea>
+        <span style="color: red;"><em>*</em>备注：家庭成员及主要社会关系：含配偶、子女及双方的父母、兄弟姐妹。格式：姓名，与本人关系，工作单位及职务，户籍所在地。</span>
+    </p>
+
+    <p class="long-input ue-clear">
+    	<label>有何特长及突出业绩：</label>
+        <textarea placeholder="" name="techang">{{ userextend.techang|safe }}</textarea>
+    </p>
+
+    <p class="long-input ue-clear" style="">
+    	<label>奖惩情况 ：</label>
+        <textarea placeholder="" name="jiangfa">{{ userextend.jiangfa|safe }}</textarea>
+        <span style="color: red;"><em style="color: red;">*</em>格式：2018.06被**单位授予**称号。</span>
+    </p>
+
+{#    <p class="long-input ue-clear">#}
+{#    	<label>审核意见 ：</label>#}
+{#        <textarea placeholder="" name="shenhe">{{ userextend.shenhe }}</textarea>#}
+{#    </p>#}
+
+    <p class="long-input ue-clear">
+    	<label>备注：</label>
+        <textarea placeholder="" name="beizhu">{{ userextend.beizhu|safe }}</textarea>
+    </p>
+
+
+</div>
+<div class="btn ue-clear">
+	<input type="submit" value="保存" />
+</div>
+</form>
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js'%}"></script>
+<script type="text/javascript" charset="utf-8" src="{% static 'kindeditor/kindeditor-all-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'kindeditor/lang/zh-CN.js' %}"></script>
+
+    <script type="text/javascript">
+        var jinglieditor;
+        var guanxieditor;
+        KindEditor.ready(function(K) {
+        guanxieditor = K.create('textarea[name="guanxi"]', {
+        items:[''],
+        width : "300px",
+        height : "250px",
+        uploadJson: '/admin/uploads/kindeditor',
+    });
+    });
+    KindEditor.ready(function(K) {
+    jinglieditor = K.create('textarea[name="jingli"]', {
+        items:[''],
+        width : "300px",
+        height : "250px",
+        uploadJson: '/admin/uploads/kindeditor',
+    });
+    });
+    KindEditor.ready(function(K) {
+    K.create('textarea[name="techang"]', {
+        items:[''],
+        width : "300px",
+        height : "250px",
+        uploadJson: '/admin/uploads/kindeditor',
+    });
+    });
+    KindEditor.ready(function(K) {
+    K.create('textarea[name="jiangfa"]', {
+        items:[''],
+        width : "300px",
+        height : "250px",
+        uploadJson: '/admin/uploads/kindeditor',
+    });
+    });
+
+    </script>
+
+    <script>
+        function checksubmit() {
+
+            if(confirm("确定保存个人资料？"))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+</html>

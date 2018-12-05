@@ -1,0 +1,66 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'zzb/css/base.css'%}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-reg.css'%}" />
+</head>
+
+<body>
+<div class="title"><h2>座位生成</h2></div>
+<form action="{% url 'zzb:seat_crate'%}" method="post" onsubmit="return checkseat();">
+<div class="main">
+    <p class="short-input ue-clear">{% csrf_token %}
+    	<label>报考人数：</label>{{ joinjobcount }}
+    </p>
+    <p class="short-input ue-clear">{% csrf_token %}
+    	<label>试室数：</label>
+        <input id="met_class" type="number" maxlength="3" name="met_class" placeholder="例如：10" />
+    </p>
+    <p class="short-input ue-clear">
+    	<label>座位数：</label>
+        <input id="met_seat" type="number" maxlength="3" name="met_seat" placeholder="例如：30" />
+    </p>
+</div>
+<div class="btn ue-clear"><input type="submit" value="生成" /></div>
+</form>
+
+<script>
+    function checkseat() {
+        var met_class = parseInt(document.getElementById('met_class').value);
+        var met_seat = parseInt(document.getElementById('met_seat').value);
+        var mincount = parseInt({{ joinjobcount }});
+        var seatcount = met_class * met_seat;
+        if (mincount <= seatcount){
+            return true;
+            }
+        else{
+            alert("试室号和座位号有误，请重新输入。");
+            return false;
+        }
+
+
+
+    }
+
+</script>
+
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js'%}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").toggle();
+	return false;
+});
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(".select-title").find("span").text(txt);
+});
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

@@ -1,0 +1,28 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>考试报名系统</title>
+</head>
+
+<body>
+<div class="main">
+	<h1 style="text-align: center; font-size: 28px;">
+    	{{ notice.title }}
+    </h1>
+    <p style="text-align: center; font-size: 18px;">
+    	{{ notice.user }} 于 {{ notice.date_publish }} 发布
+    </p>
+    <div class="">
+    	{{ notice.content|safe }}
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1, maximum-scale=1″>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link type="text/css" rel="stylesheet" href="/static/dlnews/css/dlnews.css">
+	<title>大朗新闻</title>
+</head>
+<body>
+<div></div>
+
+<div class="dlnew" style="">
+		<div class="dlnew-title" style="">
+		{{ dlnew.title }}
+		</div>
+		<div class="dlnew-time" > {{ dlnew.published_time }}</div>
+        <div class="dlnew-content" style="">
+		{{ dlnew.content|safe }}
+		</div>
+</div>
+
+<div id="backup" class="backup">回到首页</div>
+        <script type="text/javascript" src="/static/dlnews/JS/jquery.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            $("#backup").click(function () {
+                history.go(-1)
+            })
+        })
+        </script>
+
+
+</body>
+</html>

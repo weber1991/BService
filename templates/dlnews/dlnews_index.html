@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1, maximum-scale=1″>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link type="text/css" rel="stylesheet" href="/static/dlnews/css/dlnews.css">
+    <title>大朗新闻</title>
+</head>
+<body>
+        <div class="dlnews-head" style="margin:0;padding:0;width=100%;height=15%;">
+			<img src="/static/dlnews/img/new1.png" style="width:100%" />
+		</div>
+		<div class="lanmu" style="">&nbsp;&nbsp;&nbsp;大朗新闻</div>
+		
+        <div id="newslist" class="newlist" style="">			
+            {% for foo in dlnewsList.list %}
+                    <div class="new" style="">
+						<a href="/dlnews/show?newId={{ foo.manuscript_id }}">
+							<div class="new-title" style="">
+								*&nbsp;{{ foo.title }}               
+							</div>
+						</a>
+						
+						<div class="new-time" style="">
+							{{ foo.published_time }}
+						</div>
+                    </div>
+            {% endfor %}
+        </div>
+		<div id="more" class="more"style=""> 
+			加载更多
+		</div>
+		
+		<div id="pageCount" name="pageCount" style="display:none">1</div>
+		
+		<div id="footer" class="footer">
+		
+		</div>
+
+        <script type="text/javascript" src="/static/dlnews/JS/jquery.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            $("#more").click(function () {
+                var pageCount = $('#pageCount').text();
+				if(pageCount < {{ dlnewsList.page }}  ) {
+                $.ajax({
+                    type: 'GET',
+                    url:"/dlnews/ajax-getmore/",
+                    data:{"pageCount": pageCount,},
+                    dataType:"json",
+                    success:function (list) {
+                        for(var foo in list.list) {
+                            $('#newslist').append(
+                            "<div class=\"new\"> <a href=\"/dlnews-show?newId=" + list.list[foo].manuscript_id + "\">" + 
+							"<div class=\"new-title\">* &nbsp;" +
+							list.list[foo].title
+							+"</div> </a> <div class=\"new-time\">"
+                                    + list.list[foo].published_time + "</div></div>"
+                            )
+                        }
+                    $('#pageCount').html(list.pageCount)
+                    }
+
+                })
+				}
+				else{
+				
+					$('#more').text("没有更多新闻")
+					
+				}
+            })
+        })
+        </script>
+		
+</body>
+</html>

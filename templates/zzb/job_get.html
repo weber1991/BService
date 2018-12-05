@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-reg.css' %}" />
+<title>考试报名系统</title>
+</head>
+
+<body>
+<div class="title"><h2>个人信息</h2></div>
+<div class="main">
+	<p style="text-align: center; font-size: 28px;">
+    	{{ notice.title }}
+    </p>
+    <p style="text-align: center; font-size: 18px;">
+    	{{ notice.user }} 于 {{ notice.date_publish }} 发布
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	{{ notice.content|safe }}
+</div>
+
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").toggle();
+	return false;
+});
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(".select-title").find("span").text(txt);
+});
+
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

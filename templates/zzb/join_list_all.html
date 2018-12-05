@@ -1,0 +1,148 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-mgt.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/WdatePicker.css' %}" />
+<title>报考情况</title>
+    {% block js %}{% endblock %}
+
+<script>
+
+    /**
+ * 分页函数
+ * pno--页数
+ * psize--每页显示记录数
+ * 分页部分是从真实数据行开始，因而存在加减某个常数，以确定真正的记录数
+ * 纯js分页实质是数据行全部加载，通过是否显示属性完成分页功能
+ *缺陷：这里标题栏需要另外构建，这样才可以保持显示；
+ *缺陷：表格的CSS需要从新制作，最好table保证是原生态，没有class，没有style
+ **/
+function goPage(pno,psize){
+    var itable = document.getElementById("idData");
+    var num = itable.rows.length;//表格所有行数(所有记录数)
+    console.log(num);
+    var totalPage = 0;//总页数
+    var pageSize = psize;//每页显示行数
+    //总共分几页
+    if(num/pageSize > parseInt(num/pageSize)){
+            totalPage=parseInt(num/pageSize)+1;
+       }else{
+           totalPage=parseInt(num/pageSize);
+       }
+    var currentPage = pno;//当前页数
+    var startRow = (currentPage - 1) * pageSize + 1;//开始显示的行  31
+       var endRow = currentPage * pageSize;//结束显示的行   40
+       endRow = (endRow > num)? num : endRow;
+       console.log(endRow);
+       //遍历显示数据实现分页
+    for(var i=1;i<(num+1);i++){
+        var irow = itable.rows[i-1];
+        if(i>=startRow && i<=endRow){
+            irow.style.display = "block";
+        }else{
+            irow.style.display = "none";
+        }
+    }
+    var pageEnd = document.getElementById("pageEnd");
+    var tempStr = "共"+num+"条记录 分"+totalPage+"页 当前第"+currentPage+"页";
+    if(currentPage>1){
+        tempStr += "<a href=\"#\" onClick=\"goPage("+(1)+","+psize+")\">首页</a>";
+        tempStr += "<a href=\"#\" onClick=\"goPage("+(currentPage-1)+","+psize+")\"><上一页</a>"
+    }else{
+        tempStr += "首页";
+        tempStr += "<上一页";
+    }
+
+    if(currentPage<totalPage){
+        tempStr += "<a href=\"#\" onClick=\"goPage("+(currentPage+1)+","+psize+")\">下一页></a>";
+        tempStr += "<a href=\"#\" onClick=\"goPage("+(totalPage)+","+psize+")\">尾页</a>";
+    }else{
+        tempStr += "下一页>";
+        tempStr += "尾页";
+    }
+
+    document.getElementById("barcon").innerHTML = tempStr;
+
+}
+</script>
+</head>
+
+<body onload="goPage(1,50)">
+<div class="title"><h2>报考查询</h2></div>
+
+<div class="table-box">
+	<table id="">
+     	<thead>
+        	<tr>
+            	<th class="num">编号</th>
+                <th class="time">报考人</th>
+                <th class="time">身份证</th>
+                <th class="time">报考岗位</th>
+                <th class="time">报考状态</th>
+                <th class="process">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for joinjob in joinjoblistall %}
+        	<tr>
+            	<td class="num">{{ joinjob.id }}</td>
+                <th class="time">{{ joinjob.user.name }}</th>
+                <td class="time">{{ joinjob.user.idcard }}</td>
+                <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.job.name }}</td>
+                <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.state }}</td>
+                <td class="process">
+                    <a href="{% url 'zzb:join_show' joinjob.id %}">查看详情&nbsp;&nbsp;</a>
+                    {% if joinjob.state == '待审核' %}
+                    <a href="{% url 'zzb:join_success' joinjob.id %}">审核通过</a>
+                    {% endif %}
+                    {% if joinjob.state == '审核通过' %}
+                    <a href="{% url 'zzb:join_faile' joinjob.id %}">撤销审核</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<table>
+    <tr >
+        <td style="text-align: right;">
+            共&nbsp;<b>{{ pageDict.allCount }}</b>&nbsp;项&nbsp;&nbsp;
+            {% ifnotequal pageDict.nowPage 1 %}
+            <a href="?pageType=last&nowPage={{ pageDict.nowPage }}">上一页</a>
+            {% endifnotequal %}
+            &nbsp;&nbsp;
+            {{ pageDict.nowPage }}/{{ pageDict.allPage }}
+            &nbsp;&nbsp;
+            {% ifnotequal pageDict.nowPage pageDict.allPage %}
+            <a href="?pageType=next&nowPage={{ pageDict.nowPage }}">下一页</a>
+            {% endifnotequal %}
+        </td>
+    </tr>
+</table>
+</div>
+<div class="pagination ue-clear"></div>
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.pagination.js' %}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").hide();
+	$(this).siblings($(".select-list")).show();
+	return false;
+})
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(this).parent($(".select-list")).siblings($(".select-title")).find("span").text(txt);
+})
+
+
+$("tbody").find("tr:odd").css("backgroundColor","#eff6fa");
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

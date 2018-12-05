@@ -1,0 +1,156 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-reg.css' %}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-det.css' %}" />
+<title>考试报名系统</title>
+</head>
+
+<body>
+<div class="title"><h2>报考信息</h2></div>
+<div class="main">
+    <p class="short-input ue-clear newstyle" style="color: red;">
+    	<label>报名表：</label><a href="{% url 'zzb:print_joinjob' joinjob.id %}" target="_blank"><button>打印</button></a>
+    </p>
+
+    <p class="short-input ue-clear newstyle" style="color: red;">
+    	<label>报考状态：</label>{{ joinjob.state }}
+    </p>
+
+    <p class="short-input ue-clear newstyle" style="color: red;">
+    	<label>报考岗位：</label>{{ joinjob.job.name }}
+    </p>
+	<p class="short-input ue-clear newstyle">
+    	<label>姓名：</label>{{ userextend.name }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>性别：</label>{{ userextend.sex }}
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	<label>民族：</label>{{ userextend.minzu }}
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	<label>出生年月：</label>{{ userextend.chusheng }}
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	<label>籍贯：</label>{{ userextend.jiguan }}{{ userextend.note1 }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>政治面貌：</label>{{ userextend.mianmao }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>现户籍地：</label>{{ userextend.huji }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>婚姻状况：</label>{{ userextend.hunyin }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>身份证号码：</label>{{ userextend.idcard }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>联系电话：</label>{{ userextend.phone }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>通讯地址：</label>{{ userextend.tongxun }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>邮编：</label>{{ userextend.youbian }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>毕业院校：</label>{{ userextend.xuexiao }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>毕业时间：</label>{{ userextend.biye }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>所学专业：</label>{{ userextend.zhuanye }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>学历及学位：</label>{{ userextend.xueli }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>外语水平：</label>{{ userextend.waiyu }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>计算机水平：</label>{{ userextend.jisuanji }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>工作单位：</label>{{ userextend.danwei }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>单位性质：</label>{{ userextend.xingzhi }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>裸视视力：</label>{{ userextend.luoshi }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>矫正视力：</label>{{ userextend.jiaozheng }}
+    </p>
+           <p class="short-input ue-clear newstyle">
+    	<label>身高：</label>{{ userextend.shengao }}
+    </p>
+           <p class="short-input ue-clear newstyle">
+    	<label>专业技术资格：</label>{{ userextend.jishu }}
+    </p>
+           <p class="short-input ue-clear newstyle">
+    	<label>职业资格：</label>{{ userextend.zhiye1 }}
+    </p>
+           <p class="short-input ue-clear newstyle">
+    	<label>执业资格：</label>{{ userextend.zhiye2 }}
+    </p>
+           <p class="short-input ue-clear newstyle">
+{#    	<label>大学曾担任职务：</label>{{ userextend.daxue }}#}
+               <label>基层工作情况及考核结果:</label>{{ userextend.daxue }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>学习、工作经历 （何年何月至何年何月在何地、何单位工作或学习、任何职，从中学开始，按时间先后顺序填写） ：</label>
+        {{ userextend.jingli }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>家庭成员及主要社会关系：</label>
+               {{ userextend.guanxi }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>有何特长及突出业绩：</label>
+               {{ userextend.techang }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>奖罚情况：</label>
+        {{ userextend.jiangfa }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>审核意见：</label>
+        {{ userextend.shenhe }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>备注：</label>
+        {{ userextend.beizhu }}
+    </p>
+
+
+</div>
+
+
+</div>
+
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").toggle();
+	return false;
+});
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(".select-title").find("span").text(txt);
+});
+
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

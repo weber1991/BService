@@ -1,0 +1,84 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>考试报名系统</title>
+<!-- For-Mobile-Apps-and-Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps-and-Meta-Tags -->
+
+<link href="{% static 'zzb/css/style.css' %}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'zzb/css/jquerysctipttop.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>大朗镇公开招聘考试报名系统</h1>
+<section>
+  <div class="controls w3l">
+    <div class="cbcontrol" id="cbControlRight"><</div>
+    <div class="cbcontrol" id="cbControlLeft">></div>
+    <div class="clear"></div>
+  </div>
+  <div class="stage">
+   
+    <div class="cbImage w3">
+		<h3>重置密码</h3>
+		<form action="{% url 'zzb:reset_password' %}" method="post">{% csrf_token %}
+			<input type="text" class="name" name="name" placeholder="姓名" required="">
+			<input type="text" class="number" name="idcard" placeholder="身份证" required="">
+			<input type="submit" class="done" value="重置">
+		</form>
+		<a href="#" class="rterms">条款和条件</a>
+	</div>
+    <div class="cbImage active signin agileits">
+		<h3>登陆系统</h3>
+		<form action="{% url 'zzb:login' %}" method="post">{% csrf_token %}
+			<input type="text" name="username" class="name" placeholder="身份证" required="">
+			<input type="password" name="password" class="password" placeholder="密码" required="">
+			<input type="submit" value="登陆">
+			<ul class="bottom">
+				<li><a href="#" class="forgot"></a></li>
+				<li><a href="#" class="terms"></a></li>
+			</ul>
+		</form>
+	</div>
+    <div class="cbImage agileinfo">
+		<h3>注册</h3>
+		<form action="{% url 'zzb:register' %}" method="post">{% csrf_token %}
+			<input type="text" class="name" name="username" placeholder="姓名" required="">
+            <input type="text" class="name" id='reg_idcard' onchange="checkidcard()" name="idcard" placeholder="身份证" required="">
+			<input type="password" class="password" name="password1" placeholder="输入密码" required="">
+			<input type="password" class="password" name="password2" placeholder="再次输入密码" required="">
+			<input type="submit" value="注册">
+		</form>
+	</div>
+      <script>
+          function checkidcard() {
+              var idcard = document.getElementById("reg_idcard");
+              if (idcard.value.length != 18)
+              {
+                  alert("请输入正确的身份证号码");
+                  idcard.value = "";
+              }
+              else{
+                  return true;
+              }
+          }
+      </script>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="footer">
+  <p>&copy; 2018 All Rights Reserved | Design by weber</p>
+  </div>
+</section>
+<script src="{% static 'zzb/js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'zzb/coverflow-slideshow.js' %}"></script>
+<div style="text-align:center;">
+<p><a href="#" target="_blank"> 粤ICP备15088360号-6</a></p>
+</div>
+</body>
+</html>

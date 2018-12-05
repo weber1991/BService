@@ -1,0 +1,86 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>荔香大朗微信矩阵</title>
+<link type="text/css" rel="stylesheet" href="/static/wxjz/css/style.css" />
+<script type="text/javascript" src="/static/wxjz/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.menu li').click(function(){
+			var index = $(this).index();
+			$('.con').eq(index).show().siblings('.con').hide();
+			$(this).addClass('curr').siblings().removeClass('curr');
+		});
+                $(function(){
+                    var $divWidth = $('.logo img').width();
+                    $('.logo img').css({'height':$divWidth});
+                })
+			
+	});
+</script>
+<style>
+.clearf{
+	clear:left;
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="container">
+	<div class="menu">
+		<ul>
+			<li class="curr bl" style="border: 1px solid #ff7e00;">{{ sqtype.name }}</li>
+			<li>{{ bmtype.name }}</li>
+			<li class="br">其他</li>
+		</ul>
+	</div>
+	<div class="con" style="display: block">
+		<ul class="logo">
+        {% for tip in sqlist %}
+            {% if forloop.counter != 1 %}
+                    <li><a href="{{ tip.url }}" title="{{ tip.name }}"><img src="/media/{{ tip.logo }}" /></a><p>{{ tip.name }}</p></li>
+                {% else %}
+                    <li class="clearf"><a href="{{ tip.url }}" title="{{ tip.name }}"><img src="/media/{{ tip.logo }}" /></a><p>{{ tip.name }}</p></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+	</div>
+	<div class="con">
+        <ul class="logo">
+        {% for tip in bmlist %}
+            {% if forloop.counter != 1 %}
+                    <li><a href="{{ tip.url }}" title="{{ tip.name }}"><img src="/media/{{ tip.logo }}" /></a><p>{{ tip.name }}</p></li>
+                {% else %}
+                    <li class="clearf"><a href="{{ tip.url }}" title="{{ tip.name }}"><img src="/media/{{ tip.logo }}" /></a><p>{{ tip.name }}</p></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+	</div>
+	<div class="con">
+        {% for type in othertype %}
+            <h2>{{ type.name }}</h2>
+            <ul class="logo pd">
+            {% for tip in alllist %}
+                {% if tip.type == type %}
+                    {% if forloop.counter != 1 %}
+                        <li><a href="{{ tip.url }}" title="{{ tip.name }}"><img src="/media/{{ tip.logo }}" /></a><p>{{ tip.name }}</p></li>
+                    {% else %}
+                        <li class="clearf"><a href="{{ tip.url }}" title="{{ tip.name }}"><img src="/media/{{ tip.logo }}" /></a><p>{{ tip.name }}</p></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+	</div>
+	<div class="foot"></div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+﻿html,body{
+width:100%;	
+margin: 0px;
+padding: 0px;
+float:left;	
+max-height: 999999px; 
+} 
+
+.lanmu{
+	width:100%;
+	background-color:#eeeeee;
+	font-size:48px;
+	float:left;
+	margin-top:0%;
+	padding:0.5%;
+	font-family: "Microsoft YaHei", 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+	color:#999999;
+	border-top: 2px;
+	border-top-style:solid;
+	border-top-color: #666666;
+	
+}
+.newlist{
+float:left;
+margin-top:2%;
+position:relative;
+width:100%;
+margin-bottom:1%;
+}
+
+.new {
+    width: 95%;
+	margin-bottom:3%;
+	margin-left:4%;
+	max-height: 100%;
+}
+.new-title{
+width:100%;
+font-size:40px;
+max-height: 100%; 
+margin-top:1%;
+margin-bottom:0;
+color:#111111;
+}
+
+.new-time{
+width:100%;
+font-size:25px;
+text-align:right;
+margin-top:0;
+color:#777777;
+border-bottom:#aaaaaa 2px dashed;
+}
+.new a{
+	text-decoration: none;
+}
+.new a:hover{
+    color:#9cf;
+    text-decoration: none;
+}
+
+
+.dlnew{
+	max-height: 100%;
+	margin-top:3%;
+	float:left;
+	font-family: "Microsoft YaHei", 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+}
+.dlnew-title{
+	max-height: 100%;
+	font-family: "Microsoft YaHei", 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+	width:95%;
+	text-align:center;
+	font-size:60px;
+}
+.dlnew-content{
+	font-family: "Microsoft YaHei", 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+	font-size:45px;
+	width:95%;
+	max-height: 100%;
+	margin-left:3%;
+}
+
+.dlnew-time{
+	color:#666666;
+	width:93%;
+	max-height: 100%;
+	font-size:40px;
+	text-align:right;
+	margin-left:4%;
+	border-bottom:#666666 2px dashed;
+	margin-bottom:3%;
+}
+
+.dlnew-content p{
+	margin:2%;
+	font-family: "Microsoft YaHei", 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+	font-size:45px;
+	width:99%;
+	max-height: 100%;
+}
+.dlnew-content img{
+	width:90%;
+}
+.more{
+	width:98%;
+	text-align:center;
+	float:left;
+	border:1px solid white;
+	font-size:3em;
+	margin-bottom:30%;
+	font-family: "Microsoft YaHei", 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+	color:#006699;
+}
+
+.dlnew-head img{
+	width:100%;
+}
+
+
+.contain img{
+}
+
+
+.backup {
+	float:left;
+	border-top:#000000 2px dashed;
+	width:90%;
+	text-align:center;
+	margin-top: 2%;
+	margin-left: 5%;
+	margin-bottom:5%;
+	font-size:50px;
+	padding-top:5%;
+	color:#006699;
+}
+
+.backup a{
+	color: rgba(51,105,163,1);
+    text-decoration: none;
+}
+
+
+.footer{
+    background: url(/static/img/zhishui_footer3.png) bottom center no-repeat;
+    background-size:100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+pointer-events:none;
+}
+
+.footer a{
+	text-decoration:none;
+}
+
+
+
+
+

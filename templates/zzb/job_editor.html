@@ -1,0 +1,70 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'zzb/css/base.css'%}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-reg.css'%}" />
+</head>
+
+<body>
+<div class="title"><h2>编辑岗位</h2></div>
+<form action="{% url 'zzb:job_editor' job.id %}" method="post">
+<div class="main">
+    <p class="short-input ue-clear">{% csrf_token %}
+    	<label>招考岗位：</label>
+        <input type="text" name="name" placeholder="" value="{{ job.name }}" />
+    </p>
+    <p class="short-input ue-clear">
+    	<label>岗位代码：</label>
+        <input type="text" name="daihao" placeholder="" value="{{ job.daihao }}" />
+    </p>
+    <p class="short-input ue-clear">
+    	<label>招聘人数：</label>
+        <input type="text" name="count" placeholder="" value="{{ job.count }}" />
+    </p>
+        <p class="long-input ue-clear">
+    	<label>学历要求：</label>
+        <input type="text" name="education" placeholder="" value="{{ job.education }}" />
+    </p>
+        <p class="long-input ue-clear">
+    	<label>专业要求：</label>
+        <input type="text" name="major" placeholder="" value="{{ job.major }}" />
+    </p>
+    <p class="long-input ue-clear">
+    	<label>其他要求：</label>
+        <textarea placeholder="" name="other">{{ job.other }}</textarea>
+    </p>
+    <p class="long-input ue-clear">
+    	<label>备注：</label>
+        <textarea placeholder="" name="note">{{ job.note }}</textarea>
+    </p>
+    <p class="long-input ue-clear">
+    	<label>最低要求出生年月：</label>
+        <input type="text"  required="required" name="hold0" placeholder="例如：1987-7-1" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{ job.hold0 }}"/>
+        <span><em>*</em>请输入正确的时间格式</span>
+    </p>
+</div>
+<div class="btn ue-clear">
+	<input type="submit" value="保存" />
+</div>
+</form>
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js'%}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").toggle();
+	return false;
+});
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(".select-title").find("span").text(txt);
+});
+
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

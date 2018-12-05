@@ -1,0 +1,70 @@
+{% load static %}
+{% load sweat_change %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-reg.css' %}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-det.css' %}" />
+<title>考试报名系统</title>
+</head>
+
+<body>
+<div class="title"><h2>报考信息</h2></div>
+<div class="main">
+    <p class="short-input ue-clear newstyle" style="color: red;">
+    	<label>准考证：</label><a href="{% url 'zzb:print_zkz' joinjob.id%}" target="_blank"><button>打印</button></a>
+    </p>
+	<p class="short-input ue-clear newstyle">
+    	<label>姓名：</label>{{ joinjob.user.name }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>准考证号：</label>{{ joinjob.zkzh }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>身份证号码：</label>{{ joinjob.user.idcard }}
+    </p>
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>报考岗位：</label>{{ joinjob.job.daihao }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>考试地点：</label>东莞市大朗第一中学
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>地址：</label>东莞市大朗镇富民中路467号
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>试室：</label>{{ joinjob.sweat|get_class }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>试室：</label>{{ joinjob.sweat|get_seat}}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>考试时间：</label>2018年9月22日上午9:30-11:30
+    </p>
+
+</div>
+
+
+</div>
+
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").toggle();
+	return false;
+});
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(".select-title").find("span").text(txt);
+});
+
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>
