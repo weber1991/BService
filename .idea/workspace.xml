@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b508a36-3907-494e-95d6-f56c3e5dca5c" name="Default" comment="" />
+    <list default="true" id="1b508a36-3907-494e-95d6-f56c3e5dca5c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/zzb/zzb_bmb.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/zzb_bmb.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,53 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/zzb/views.py">
+      <file leaf-file-name="zzb_bmb.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_bmb.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="475" selection-start-line="475" selection-end-line="475" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="375">
+              <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zzb_temp.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_temp.html">
+      <file leaf-file-name="zzb_zkz.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_zkz.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zzb/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="61" column="32" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/zzb/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3225">
-              <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="time_set.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/zzb/time_set.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1575">
-              <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-              <folding>
-                <element signature="n#style#0;n#label#0;n#p#8;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="550">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -109,6 +80,9 @@
       <find>join_list</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -148,7 +122,6 @@
         <option value="$PROJECT_DIR$/templates/zzb/join_list.html" />
         <option value="$PROJECT_DIR$/templates/zzb/join_job.html" />
         <option value="$PROJECT_DIR$/templates/zzb/zzb_zkz.html" />
-        <option value="$PROJECT_DIR$/templates/zzb/zzb_bmb.html" />
         <option value="$PROJECT_DIR$/templates/zzb/paper_list.html" />
         <option value="$PROJECT_DIR$/zzb/models.py" />
         <option value="$PROJECT_DIR$/templates/zzb/job_list_all.html" />
@@ -163,6 +136,7 @@
         <option value="$PROJECT_DIR$/templates/zzb/index.html" />
         <option value="$PROJECT_DIR$/templates/zzb/time_set.html" />
         <option value="$PROJECT_DIR$/zzb/views.py" />
+        <option value="$PROJECT_DIR$/templates/zzb/zzb_bmb.html" />
       </list>
     </option>
   </component>
@@ -180,6 +154,7 @@
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -200,35 +175,6 @@
             <path>
               <item name="BService" type="b2602c69:ProjectViewProjectNode" />
               <item name="BService" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BService" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="zzb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BService" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BService" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="zzb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BService" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="zzb" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BService" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -236,17 +182,6 @@
               <item name="BService" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="zzb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BService" type="462c0819:PsiDirectoryNode" />
-              <item name="zzb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BService" type="462c0819:PsiDirectoryNode" />
-              <item name="zzb" type="462c0819:PsiDirectoryNode" />
-              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -338,11 +273,11 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329927" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.1649635" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34014598" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.329927" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2705803" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.280027" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -400,13 +335,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zzb/templatetags/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BService/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="61" column="38" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/kindeditor/lang/zh-CN.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -567,24 +495,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_bmb.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/chengji_data.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_zkz.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -704,9 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
           <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#p#8;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,11 +637,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zzb/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="11650">
           <caret line="475" selection-start-line="475" selection-end-line="475" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BService/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_bmb.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_zkz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
         </state>
       </provider>
     </entry>

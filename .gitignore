@@ -1,3 +1,22 @@
-#django 
+# 忽略文件通用版本
 
-settings.py
+# python && django
+
+workspace.xml
+*.pyc
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+bulid
+
+__pycache__/
+migrations/
+
+
+# windows
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
