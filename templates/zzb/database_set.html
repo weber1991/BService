@@ -1,0 +1,40 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'zzb/css/base.css'%}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-reg.css'%}" />
+</head>
+
+<body>
+<div class="title"><h2>考试时间配置</h2></div>
+<div class="main">
+    <p class="short-input ue-clear" style="font-size: 15px;">
+    	*清除考生数据（除管理员外）：
+        <a href="{% url 'zzb:cleanuser' %}" onclick="if(confirm('确认清空吗？提示：清空用户会将报考信息也清空。')==false)return false;"><button>清空人数</button></a>
+        （当前人数为{{ zzUserCount }}）
+    </p>
+    <p class="short-input ue-clear">
+    	<label style="color: red;">{{ answer }}</label>
+    </p>
+</div>
+
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js'%}"></script>
+    <script>
+        function checksubmit() {
+
+            if(confirm("确定保存？"))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+</html>

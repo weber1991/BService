@@ -339,7 +339,6 @@ def join_job(req):
             title = '已经结束报名。'
             content = '报名截止时间为：' + str(zztime.endbm)
             return render(req, 'zzb/zzb_temp.html', {'title':title, 'content': content})
-
     if username:
         userextendlist = zzUserExtend.objects.filter(user=user)
         # 判断有没有填写资料，没有则跳转
@@ -417,8 +416,12 @@ def join_list_all(req):
     elif pageDict["pageType"] == 'last':
         pageDict["nowPage"] -= 1
 
+    firstCount = (pageDict["nowPage"]-1)*PAGECOUNT
+
     joinjoblistall = zzJoinJob.objects.all()[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
-    return render(req, 'zzb/join_list_all.html', {'joinjoblistall': joinjoblistall,'pageDict':pageDict})
+    return render(req, 'zzb/join_list_all.html', {'joinjoblistall': joinjoblistall,
+                                                  'pageDict':pageDict,
+                                                  'firstCount':firstCount})
 
 def join_success(req, id):
     joinjob = zzJoinJob.objects.get(id = id)
@@ -1160,8 +1163,12 @@ def time_set(req):
                       {'timeList':timeList,'answer':answer})
 
 
+def database_set(req):
+    zzUserCount = zzUser.objects.exclude(id=1).exclude(id=2).count()
+    return render(req, 'zzb/database_set.html', {'zzUserCount':zzUserCount})
+
 def cleanUser(req):
     zzUserList = zzUser.objects.exclude(id=1).exclude(id=2)
     for user in zzUserList:
         user.delete()
-    pass
+    return redirect('zzb:database_set')

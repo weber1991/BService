@@ -88,7 +88,7 @@ function goPage(pno,psize){
         <tbody>
         {% for joinjob in joinjoblistall %}
         	<tr>
-            	<td class="num">{{ joinjob.id }}</td>
+            	<td class="num">{{ forloop.counter|add:firstCount }}</td>
                 <th class="time">{{ joinjob.user.name }}</th>
                 <td class="time">{{ joinjob.user.idcard }}</td>
                 <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.job.name }}</td>

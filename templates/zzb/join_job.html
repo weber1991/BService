@@ -128,27 +128,27 @@
     </p>
            <p class="short-input ue-clear newstyle">
 {#    	<label>大学曾担任职务：</label>{{ userextend.daxue }}#}
-               <label>基层工作情况及考核结果:</label>{{ userextend.daxue }}
+               <label>基层工作情况及考核结果:</label>{{ userextend.daxue|safe }}
     </p>
     <p class="short-input ue-clear newstyle">
     	<label>学习、工作经历 （何年何月至何年何月在何地、何单位工作或学习、任何职，从中学开始，按时间先后顺序填写） ：</label>
-        {{ userextend.jingli }}
+        {{ userextend.jingli|safe }}
     </p>
     <p class="short-input ue-clear newstyle">
     	<label>家庭成员及主要社会关系：</label>
-               {{ userextend.guanxi }}
+               {{ userextend.guanxi|safe }}
     </p>
     <p class="short-input ue-clear newstyle">
     	<label>有何特长及突出业绩：</label>
-               {{ userextend.techang }}
+               {{ userextend.techang|safe }}
     </p>
     <p class="short-input ue-clear newstyle">
     	<label>奖罚情况：</label>
-        {{ userextend.jiangfa }}
+        {{ userextend.jiangfa|safe }}
     </p>
     <p class="short-input ue-clear newstyle">
     	<label>备注：</label>
-        {{ userextend.beizhu }}
+        {{ userextend.beizhu|safe }}
     </p>
 
 
