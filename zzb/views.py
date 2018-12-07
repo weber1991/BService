@@ -293,7 +293,7 @@ def job_editor(req, id):
         job.major = req.POST.get('major', None)
         job.other = req.POST.get('other', None)
         job.note = req.POST.get('note', None)
-        job.hold0 = req.POST.get('hold0', None)
+        # job.hold0 = req.POST.get('hold0', None)
         job.state = '草稿'
         job.save()
         return redirect('zzb:job_list_all')
@@ -356,11 +356,14 @@ def join_job(req):
                 myjoblist = []
                 joblist = zzJob.objects.filter(state='发布')
                 try:
-                    mydate = datetime.datetime.strptime(userextend.chusheng, "%Y-%m-%d")
-                    for job in joblist:
-                        jobdate = datetime.datetime.strptime(job.hold0, "%Y-%m-%d")
-                        if mydate >= jobdate:
-                            myjoblist.append(job)
+                    # 年龄过滤
+                    # mydate = datetime.datetime.strptime(userextend.chusheng, "%Y-%m-%d")
+                    # for job in joblist:
+                    #     jobdate = datetime.datetime.strptime(job.hold0, "%Y-%m-%d")
+                    #     if mydate >= jobdate:
+                    #         myjoblist.append(job)
+                    # 年龄不过滤
+                    myjoblist = joblist
                     return render(req, 'zzb/join_job.html', {'joblist': myjoblist, 'userextend': userextend})
                 except:
                     title = '无法获取报名信息'
@@ -1117,7 +1120,16 @@ def mydata(req):
 
 
 def time_set(req):
-    timeList = zzTime.objects.get(id = 1)
+    try:
+        timeList = zzTime.objects.get(id = 1)
+    except:
+        now = datetime.datetime.now()
+        timeList = zzTime.objects.create(id = 1,startbm=now,
+                                         endbm=now,startbs=now,
+                                         endbs=now,startdy=now,
+                                         enddy=now,startcj=now,
+                                         endcj=now,
+                                         )
     if req.method == 'GET':
         return render(req, 'zzb/time_set.html',
                       {'timeList':timeList})

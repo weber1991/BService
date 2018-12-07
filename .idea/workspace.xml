@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b508a36-3907-494e-95d6-f56c3e5dca5c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/zzb/job_list_all.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/job_list_all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zzb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zzb/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/zzb/job_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/job_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/zzb/job_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/job_data.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/zzb/job_editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/job_editor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zzb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zzb/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,20 +37,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="job_list_all.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="job_list_all.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/zzb/job_list_all.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+            <state relative-caret-position="256">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zzb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="300" lean-forward="true" selection-start-line="300" selection-end-line="300" />
+            <state relative-caret-position="202">
+              <caret line="1130" column="51" lean-forward="true" selection-start-line="1130" selection-start-column="51" selection-end-line="1130" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zzb/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1375">
+              <caret line="56" column="93" selection-start-line="56" selection-start-column="89" selection-end-line="56" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job_data.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/zzb/job_data.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="35" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job_add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/zzb/job_add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job_editor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/zzb/job_editor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="42" selection-start-line="42" selection-start-column="2" selection-end-line="46" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -76,24 +112,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zzb_bmb.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_bmb.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zzb_zkz.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_zkz.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="79" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -106,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>待定</find>
       <find>join_job</find>
       <find>img</find>
       <find>科室</find>
@@ -118,7 +135,6 @@
       <find>required=&quot;required&quot;</find>
       <find>process</find>
       <find>笔试</find>
-      <find>join</find>
       <find>东莞市</find>
       <find>大学</find>
       <find>sweat</find>
@@ -136,6 +152,8 @@
       <find>delete</find>
       <find>notice</find>
       <find>job_ed</find>
+      <find>join</find>
+      <find>job_add</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,9 +176,7 @@
         <option value="$PROJECT_DIR$/BService/settings.py" />
         <option value="$PROJECT_DIR$/templates/zzb/zzb_temp.html" />
         <option value="$PROJECT_DIR$/templates/zzb/time_out.html" />
-        <option value="$PROJECT_DIR$/templates/zzb/job_data.html" />
         <option value="$PROJECT_DIR$/templates/zzb/join_job_suceess.html" />
-        <option value="$PROJECT_DIR$/templates/zzb/job_editor.html" />
         <option value="$PROJECT_DIR$/templates/zzb/notice_look.html" />
         <option value="$PROJECT_DIR$/templates/zzb/join_count.html" />
         <option value="$PROJECT_DIR$/templates/zzb/zkz_print.html" />
@@ -171,7 +187,6 @@
         <option value="$PROJECT_DIR$/templates/zzb/seat_create.html" />
         <option value="$PROJECT_DIR$/static/zzb/js/index.js" />
         <option value="$PROJECT_DIR$/templates/zzb/login.html" />
-        <option value="$PROJECT_DIR$/templates/zzb/job_add.html" />
         <option value="$PROJECT_DIR$/templates/zzb/set_password.html" />
         <option value="$PROJECT_DIR$/zzb/templatetags/sweat_change.py" />
         <option value="$PROJECT_DIR$/templates/zzb/chengji_data.html" />
@@ -193,8 +208,11 @@
         <option value="$PROJECT_DIR$/templates/zzb/zzb_bmb.html" />
         <option value="$PROJECT_DIR$/templates/zzb/notice_list_all.html" />
         <option value="$PROJECT_DIR$/zzb/urls.py" />
-        <option value="$PROJECT_DIR$/zzb/views.py" />
         <option value="$PROJECT_DIR$/templates/zzb/job_list_all.html" />
+        <option value="$PROJECT_DIR$/templates/zzb/job_data.html" />
+        <option value="$PROJECT_DIR$/templates/zzb/job_editor.html" />
+        <option value="$PROJECT_DIR$/templates/zzb/job_add.html" />
+        <option value="$PROJECT_DIR$/zzb/views.py" />
       </list>
     </option>
   </component>
@@ -475,30 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/job_get.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/job_editor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/job_data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/job_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="45" column="109" lean-forward="true" selection-start-line="45" selection-start-column="109" selection-end-line="45" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/notice_look.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -559,13 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zzb/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1375">
-          <caret line="56" column="93" selection-start-line="56" selection-start-column="89" selection-end-line="56" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -712,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zzb/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="300" lean-forward="true" selection-start-line="300" selection-end-line="300" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zzb/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
@@ -728,8 +708,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/job_list_all.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        <state relative-caret-position="256">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/job_get.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/job_editor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="42" selection-start-line="42" selection-start-column="2" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/job_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/job_data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="35" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zzb/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1375">
+          <caret line="56" column="93" selection-start-line="56" selection-start-column="89" selection-end-line="56" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zzb/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="1130" column="51" lean-forward="true" selection-start-line="1130" selection-start-column="51" selection-end-line="1130" selection-end-column="51" />
         </state>
       </provider>
     </entry>
