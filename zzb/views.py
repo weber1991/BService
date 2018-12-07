@@ -298,6 +298,12 @@ def job_editor(req, id):
         job.save()
         return redirect('zzb:job_list_all')
 
+
+def job_delete(req, id):
+    job = zzJob.objects.get(id=id)
+    job.delete()
+    return redirect('zzb:job_list_all')
+
 def job_data(req, id):
     job = zzJob.objects.get(id = id)
     return render(req, 'zzb/job_data.html', {'job':job})

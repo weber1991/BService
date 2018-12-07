@@ -38,6 +38,7 @@
                 <td class="process">
                     <a href="{% url 'zzb:job_editor' job.id %}">编辑</a>
                     <a href="{% url 'zzb:job_change' job.id %}">&nbsp;更变状态</a>
+                    <a href="{% url 'zzb:job_delete' job.id %}" onclick="if(confirm('确认删除吗？')==false)return false;">&nbsp;删除</a>
 
                 </td>
             </tr>

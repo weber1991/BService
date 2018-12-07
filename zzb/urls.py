@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^job_change/(?P<id>[0-9]+)/$', job_change, name='job_change'),
     url(r'^job_editor/(?P<id>[0-9]+)/$', job_editor, name='job_editor'),
     url(r'^job_data/(?P<id>[0-9]+)/$', job_data, name='job_data'),
+    url(r'^job_delete/(?P<id>[0-9]+)/$', job_delete, name='job_delete'),
 
     url(r'^join_job/', join_job, name='join_job'),
     url(r'^join_list/', join_list, name='join_list'),# 展示个人的报考情况
