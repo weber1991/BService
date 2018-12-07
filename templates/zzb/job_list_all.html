@@ -30,7 +30,7 @@
         <tbody>
         {% for job in joblistall %}
         	<tr>
-            	<td class="num">{{ job.id }}</td>
+            	<td class="num">{{ forloop.counter }}</td>
                 <td class="name">{{ job.daihao }}</td>
                 <td class="name" style="border:1px dotted #c7c7c7;padding-left: 20px">{{ job.name }}</td>
                 <th class="num" style="border:1px dotted #c7c7c7;">{{ job.count }}</th>

@@ -1158,3 +1158,10 @@ def time_set(req):
         answer = '考试时间已更新'
         return render(req, 'zzb/time_set.html',
                       {'timeList':timeList,'answer':answer})
+
+
+def cleanUser(req):
+    zzUserList = zzUser.objects.exclude(id=1).exclude(id=2)
+    for user in zzUserList:
+        user.delete()
+    pass

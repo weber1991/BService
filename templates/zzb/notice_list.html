@@ -25,7 +25,7 @@
         <tbody>
         {% for notice in noticelist %}
         	<tr>
-            	<td class="num">{{ notice.id }}</td>
+            	<td class="num">{{ forloop.counter }}</td>
                 <td class="operate">{{ notice.title }}</td>
                 <td class="time" style="border:1px dotted #c7c7c7;">{{ notice.date_publish }}</td>
                 <td class="process">
