@@ -247,6 +247,12 @@ def notice_change(req, id):
     notice.save()
     return redirect('zzb:notice_list_all')
 
+
+def notice_delete(req, id):
+    notice = zzNotice.objects.get(id = id)
+    notice.delete()
+    return redirect('zzb:notice_list_all')
+
 # 岗位新增
 def job_add(req):
     if req.method == 'GET':

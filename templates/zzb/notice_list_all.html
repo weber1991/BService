@@ -36,7 +36,7 @@
                 <td class="process">
                     <a href="{% url 'zzb:notice_editor' notice.id %}">编辑</a>
                     <a href="{% url 'zzb:notice_change' notice.id %}">&nbsp;修改状态</a>
-                    <a href="javascript:;">&nbsp;删除</a>
+                    <a href="{% url 'zzb:notice_delete' notice.id %}">&nbsp;删除</a>
                 </td>
             </tr>
         {% endfor %}

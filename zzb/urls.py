@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^notice_add/$', notice_add, name='notice_add'),
     url(r'^notice_editor/(?P<id>[0-9]+)/$', notice_editor, name='notice_editor'),
     url(r'^notice_change/(?P<id>[0-9]+)/$', notice_change, name='notice_change'),
+    url(r'^notice_delete/(?P<id>[0-9]+)/$', notice_delete, name='notice_delete'),
     #url(r'^shixiang_change/(?P<bh>[0-9]+)/$',shixiang_change , name='shixiang_change'),
     #url(r'^loginmessage/$', loginMessage, name='loginmessage'),
 
