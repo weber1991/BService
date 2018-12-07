@@ -1164,11 +1164,11 @@ def time_set(req):
 
 
 def database_set(req):
-    zzUserCount = zzUser.objects.exclude(id=1).exclude(id=2).count()
+    zzUserCount = zzUser.objects.exclude(power=4).count()
     return render(req, 'zzb/database_set.html', {'zzUserCount':zzUserCount})
 
 def cleanUser(req):
-    zzUserList = zzUser.objects.exclude(id=1).exclude(id=2)
+    zzUserList = zzUser.objects.exclude(power=4)
     for user in zzUserList:
         user.delete()
     return redirect('zzb:database_set')
