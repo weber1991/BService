@@ -344,6 +344,8 @@ def join_job(req):
         # 判断有没有填写资料，没有则跳转
         if len(userextendlist) == 0:
             return redirect('zzb:mydata')
+        if userextendlist.latest().jiguan is None:
+            return redirect('zzb:mydata')
         if req.method == 'GET':
             userextend = userextendlist.first()
             joinjoblist = zzJoinJob.objects.filter(user=userextend)
