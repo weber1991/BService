@@ -25,6 +25,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/zzb/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="654">
+              <caret line="112" column="86" selection-start-line="112" selection-start-column="86" selection-end-line="112" selection-end-column="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="join_job_suceess.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/zzb/join_job_suceess.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,15 +48,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
               <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="join_list_all.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/zzb/join_list_all.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2300">
-              <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -91,8 +91,8 @@
       <file leaf-file-name="paper_data.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/zzb/paper_data.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+            <state relative-caret-position="300">
+              <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -665,13 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2800">
-          <caret line="112" column="86" selection-start-line="112" selection-start-column="86" selection-end-line="112" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/join_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-300">
@@ -749,10 +742,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="112" column="86" selection-start-line="112" selection-start-column="86" selection-end-line="112" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/paper_data.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        <state relative-caret-position="300">
+          <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
         </state>
       </provider>
     </entry>
