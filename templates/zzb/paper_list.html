@@ -20,7 +20,7 @@
     	<label>姓名：</label>{{ joinjob.user.name }}
     </p>
     <p class="short-input ue-clear newstyle">
-    	<label>准考证号：</label>{{ joinjob.zkzh }}
+    	<label>准考证号：</label>{{ joinjob.zkzh|zkz_replace }}
     </p>
     <p class="short-input ue-clear newstyle">
     	<label>身份证号码：</label>{{ joinjob.user.idcard }}
