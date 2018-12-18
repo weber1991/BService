@@ -43,3 +43,11 @@ def get_seat(value):
         return strlist[1]
     except:
         return ''
+
+@register.filter()
+def zkz_replace(value):
+    try:
+        temp = value[0:4]+value[6:]
+        return temp
+    except:
+        return value

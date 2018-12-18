@@ -21,7 +21,7 @@
 				<div style="width: 400px;float:left;" >
 					<div style="width: 350px;float:right;font-weight:bold;" align="left">
 						姓    名：{{ joinjob.user.name }}</br>
-						准考证号：{{ joinjob.zkzh }}</br>
+						准考证号：{{ joinjob.zkzh|zkz_replace }}</br>
 						身份证号：{{ joinjob.user.idcard }}</br>
 						报考岗位：{{ joinjob.job.daihao }}</br>
 						考试地点：东莞市大朗第一中学</br>

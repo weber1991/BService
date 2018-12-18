@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b508a36-3907-494e-95d6-f56c3e5dca5c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/zzb/system_message.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/zzb/zzb_zkz.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/zzb_zkz.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zzb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zzb/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zzb/templatetags/sweat_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/zzb/templatetags/sweat_change.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,15 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zzb/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1625">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="mydata.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/zzb/mydata.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,8 +75,17 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zzb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="351" column="51" selection-start-line="351" selection-start-column="51" selection-end-line="351" selection-end-column="51" />
+            <state relative-caret-position="15950">
+              <caret line="647" selection-start-line="647" selection-end-line="647" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sweat_change.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zzb/templatetags/sweat_change.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="503">
+              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -94,13 +93,8 @@
       <file leaf-file-name="zzb_zkz.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_zkz.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-              <folding>
-                <element signature="e#381#387#0#HTML" expanded="true" />
-                <element signature="e#382#388#0#HTML" expanded="true" />
-                <element signature="e#389#395#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="125">
+              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -126,7 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>科室</find>
       <find>joinjoblist</find>
       <find>join_show</find>
       <find>set_pa</find>
@@ -156,6 +149,7 @@
       <find>join</find>
       <find>join_list_all</find>
       <find>join_job</find>
+      <find>zkz</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,7 +180,6 @@
         <option value="$PROJECT_DIR$/static/zzb/js/index.js" />
         <option value="$PROJECT_DIR$/templates/zzb/login.html" />
         <option value="$PROJECT_DIR$/templates/zzb/set_password.html" />
-        <option value="$PROJECT_DIR$/zzb/templatetags/sweat_change.py" />
         <option value="$PROJECT_DIR$/templates/zzb/chengji_data.html" />
         <option value="$PROJECT_DIR$/templates/zzb/join_show.html" />
         <option value="$PROJECT_DIR$/templates/zzb/join_list.html" />
@@ -214,6 +207,7 @@
         <option value="$PROJECT_DIR$/templates/zzb/join_list_all.html" />
         <option value="$PROJECT_DIR$/templates/zzb/system_message.html" />
         <option value="$PROJECT_DIR$/zzb/views.py" />
+        <option value="$PROJECT_DIR$/zzb/templatetags/sweat_change.py" />
         <option value="$PROJECT_DIR$/templates/zzb/zzb_zkz.html" />
       </list>
     </option>
@@ -238,7 +232,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,10 +260,17 @@
               <item name="BService" type="462c0819:PsiDirectoryNode" />
               <item name="zzb" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BService" type="462c0819:PsiDirectoryNode" />
+              <item name="zzb" type="462c0819:PsiDirectoryNode" />
+              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,17 +356,17 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329927" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21605839" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.1649635" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21605839" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.329927" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29419702" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29892036" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -377,11 +377,10 @@
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36099866" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -389,16 +388,17 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329927" />
       <window_info anchor="bottom" id="manage.py@BService" order="12" weight="0.34890512" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3211679" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.1649635" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.1649635" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,13 +472,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BService/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zzb/templatetags/sweat_change.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/notice_look.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -746,20 +739,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zzb/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="351" column="51" selection-start-line="351" selection-start-column="51" selection-end-line="351" selection-end-column="51" />
+        <state relative-caret-position="15950">
+          <caret line="647" selection-start-line="647" selection-end-line="647" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zzb/templatetags/sweat_change.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/zzb_zkz.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-          <folding>
-            <element signature="e#381#387#0#HTML" expanded="true" />
-            <element signature="e#382#388#0#HTML" expanded="true" />
-            <element signature="e#389#395#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="125">
+          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
         </state>
       </provider>
     </entry>
