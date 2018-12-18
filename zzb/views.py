@@ -344,7 +344,8 @@ def join_job(req):
         # 判断有没有填写资料，没有则跳转
         if len(userextendlist) == 0:
             return redirect('zzb:mydata')
-        if userextendlist[0].jiguan is '':
+        if userextendlist[0].jiguan is '' and userextendlist[0].phone is '':
+            # message = "您的信息并不完善，请先个人信息中填写完整"
             return redirect('zzb:mydata')
         if req.method == 'GET':
             userextend = userextendlist.first()
