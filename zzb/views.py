@@ -943,7 +943,7 @@ def chengji_list(req):
 
 # 供后台管理员查看，调用同个模板
 def chengji_look(req, id):
-    joinjob = zzJoinJob.get(id = id)
+    joinjob = zzJoinJob.objects.get(id = id)
     return render(req, 'zzb/chengji_data.html', {'joinjob':joinjob})
 
 def chengji_data(req):

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b508a36-3907-494e-95d6-f56c3e5dca5c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/zzb/chengji_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/chengji_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zzb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zzb/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zzb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zzb/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zzb/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="338">
-              <caret line="945" column="36" lean-forward="true" selection-start-line="945" selection-start-column="36" selection-end-line="945" selection-end-column="36" />
+              <caret line="945" column="43" selection-start-line="945" selection-start-column="43" selection-end-line="945" selection-end-column="43" />
               <folding>
                 <element signature="e#30685#33220#0" />
               </folding>
@@ -57,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chengji_list.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chengji_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/zzb/chengji_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="63" column="16" lean-forward="true" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+            <state relative-caret-position="356">
+              <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -173,9 +171,9 @@
         <option value="$PROJECT_DIR$/templates/zzb/paper_list.html" />
         <option value="$PROJECT_DIR$/templates/zzb/chengji_data.html" />
         <option value="$PROJECT_DIR$/zzb/templatetags/sweat_change.py" />
-        <option value="$PROJECT_DIR$/zzb/views.py" />
         <option value="$PROJECT_DIR$/zzb/urls.py" />
         <option value="$PROJECT_DIR$/templates/zzb/chengji_list.html" />
+        <option value="$PROJECT_DIR$/zzb/views.py" />
       </list>
     </option>
   </component>
@@ -704,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zzb/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="945" column="36" lean-forward="true" selection-start-line="945" selection-start-column="36" selection-end-line="945" selection-end-column="36" />
-          <folding>
-            <element signature="e#30685#33220#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zzb/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -723,8 +711,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/chengji_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="63" column="16" lean-forward="true" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+        <state relative-caret-position="356">
+          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zzb/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="945" column="43" selection-start-line="945" selection-start-column="43" selection-end-line="945" selection-end-column="43" />
+          <folding>
+            <element signature="e#30685#33220#0" />
+          </folding>
         </state>
       </provider>
     </entry>
