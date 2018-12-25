@@ -893,6 +893,11 @@ def chengji_list(req):
     joinjoblist = zzJoinJob.objects.all()[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
 
     if req.method == 'GET':
+        tempJoinJobList = zzJoinJob.objects.all()
+        for i in tempJoinJobList:
+            zkzh = i.zkzh[0:4]+i.zkzh[6:]
+            i.zkzh = zkzh
+            i.save()
         return render(req, 'zzb/chengji_list.html',
                       {'joinjoblist':joinjoblist,'pageDict':pageDict})
     else:
