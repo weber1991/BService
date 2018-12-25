@@ -46,6 +46,8 @@ def get_seat(value):
 
 @register.filter()
 def zkz_replace(value):
+    if len(value) < 13:
+        return value
     try:
         temp = value[0:4]+value[6:]
         return temp
