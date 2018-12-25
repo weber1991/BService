@@ -916,10 +916,13 @@ def chengji_list(req):
                     # note来代表名次-----对应第4列
                     # 唯一标识号，zkzh--对应第2列
                     try:
-                        zkzh = int(table.cell(rowx=i, colx=2).value)
+                        zkzh = int(table.cell(rowx=i, colx=2).value) # 就是excel里面的第三列
                         print(zkzh)
                         joinjob = zzJoinJob.objects.get(zkzh=zkzh)
-                        state = table.cell(rowx=i, colx=5).value
+                        try:
+                            state = table.cell(rowx=i, colx=5).value
+                        except:
+                            state = '待审核'
                         process = '是否进入面试'
                         score = table.cell(rowx=i, colx=3).value
                         try:

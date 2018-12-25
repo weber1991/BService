@@ -28,8 +28,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zzb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="898" column="27" lean-forward="true" selection-start-line="898" selection-start-column="27" selection-end-line="898" selection-end-column="27" />
+            <state relative-caret-position="191">
+              <caret line="928" column="68" selection-start-line="928" selection-start-column="68" selection-end-line="928" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -166,9 +166,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -697,8 +697,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zzb/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="898" column="27" lean-forward="true" selection-start-line="898" selection-start-column="27" selection-end-line="898" selection-end-column="27" />
+        <state relative-caret-position="191">
+          <caret line="928" column="68" selection-start-line="928" selection-start-column="68" selection-end-line="928" selection-end-column="68" />
         </state>
       </provider>
     </entry>
