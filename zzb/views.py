@@ -941,6 +941,10 @@ def chengji_list(req):
                 return render(req, 'zzb/chengji_list.html', {})
         return render(req, 'zzb/chengji_list.html', {})
 
+# 供后台管理员查看，调用同个模板
+def chengji_look(req, id):
+    joinjob = zzJoinJob.get(id = id)
+    return render(req, 'zzb/chengji_data.html', {'joinjob':joinjob})
 
 def chengji_data(req):
     zztime = zzTime.objects.get(id=1)

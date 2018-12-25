@@ -63,7 +63,7 @@
         {% for joinjob in joinjoblist %}
         	<tr>
             	<td class="num">{{ forloop.counter }}</td>
-                <th class="time">{{ joinjob.user.name }}</th>
+                <th class="time"><a href="{% url 'zzb:chengji_look'  joinjob.id %}">{{ joinjob.user.name }}</a></th>
                 <td class="time">{{ joinjob.zkzh }}</td>
                 <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.score }}</td>
                 <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.note}}</td>

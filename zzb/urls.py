@@ -58,6 +58,7 @@ urlpatterns = [
 
     url(r'^chengji_list/$', chengji_list, name='chengji_list'),  # 成绩导入
     url(r'chengji_data/$', chengji_data, name='chengji_data'),  # 成绩查询
+    url(r'chengji_look/(?P<id>[0-9]+)/$', chengji_look, name='chengji_look'),  # 成绩查询,管理员用
 
     url(r'^mydata/$', mydata, name='mydata'),
 
