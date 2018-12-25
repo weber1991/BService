@@ -891,6 +891,7 @@ def chengji_list(req):
         pageDict["nowPage"] -= 1
 
     joinjoblist = zzJoinJob.objects.all()[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
+    firstCount = int((pageDict["nowPage"]-1)*PAGECOUNT)
 
     if req.method == 'GET':
         # tempJoinJobList = zzJoinJob.objects.all()
@@ -899,7 +900,7 @@ def chengji_list(req):
         #     i.zkzh = zkzh
         #     i.save()
         return render(req, 'zzb/chengji_list.html',
-                      {'joinjoblist':joinjoblist,'pageDict':pageDict})
+                      {'joinjoblist':joinjoblist,'pageDict':pageDict, 'firstCount':firstCount})
     else:
         chengji_file = req.FILES.get('chengji_file', None)
         if chengji_file:

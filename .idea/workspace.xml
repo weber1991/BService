@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b508a36-3907-494e-95d6-f56c3e5dca5c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/templates/zzb/chengji_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/zzb/chengji_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zzb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zzb/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +38,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zzb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="945" column="43" selection-start-line="945" selection-start-column="43" selection-end-line="945" selection-end-column="43" />
-              <folding>
-                <element signature="e#30685#33220#0" />
-              </folding>
+            <state relative-caret-position="417">
+              <caret line="902" column="93" selection-start-line="902" selection-start-column="93" selection-end-line="902" selection-end-column="93" />
             </state>
           </provider>
         </entry>
@@ -59,7 +57,16 @@
         <entry file="file://$PROJECT_DIR$/templates/zzb/chengji_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="356">
-              <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+              <caret line="64" column="65" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="join_list_all.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/zzb/join_list_all.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="90" column="51" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -583,13 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/job_list_all.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="40" column="115" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/join_job.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3750">
@@ -608,13 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/join_list_all.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2300">
-          <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -688,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/zzb/chengji_data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -709,20 +695,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/chengji_data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/job_list_all.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/zzb/join_list_all.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="90" column="51" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/zzb/chengji_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+          <caret line="64" column="65" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zzb/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="945" column="43" selection-start-line="945" selection-start-column="43" selection-end-line="945" selection-end-column="43" />
-          <folding>
-            <element signature="e#30685#33220#0" />
-          </folding>
+        <state relative-caret-position="417">
+          <caret line="902" column="93" selection-start-line="902" selection-start-column="93" selection-end-line="902" selection-end-column="93" />
         </state>
       </provider>
     </entry>
