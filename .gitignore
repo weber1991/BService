@@ -12,7 +12,7 @@ dist
 bulid
 
 __pycache__/
-migrations/
+# migrations/
 
 
 # windows
