@@ -34,7 +34,22 @@ def zzb_temp(req):
     return render(req, 'zzb/zzb_temp.html',{'title': '告示','content':'功能未开放，敬请期待。'})
 
 def index(req):
-    zztime = zzTime.objects.get(id=1)
+    try:
+        zztime = zzTime.objects.get(id=1)
+    except:
+        import datetime
+        zztime = zzTime.objects.create(
+            id = 1,
+            name= '招聘项目',
+            startcj=datetime.datetime.now(),
+            endcj=datetime.datetime.now(),
+            startbm=datetime.datetime.now(),
+            endbm=datetime.datetime.now(),
+            startdy=datetime.datetime.now(),
+            enddy=datetime.datetime.now(),
+            startbs=datetime.datetime.now(),
+            endbs=datetime.datetime.now(),
+        )
     if zztime:
         now = datetime.datetime.now()
         if now > zztime.startbm:

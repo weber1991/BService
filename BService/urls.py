@@ -18,10 +18,12 @@ from django.contrib import admin
 from BService.settings import MEDIA_ROOT
 from django.views.static import serve
 from BService.upload import *
+from wxjz.views import *
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', wxjz_index, name='wxjz_inde'),
     url(r'^wait/', include('wait.urls', namespace='wait')),
     url(r'^dlnews/', include('dlnews.urls', namespace='dlnews')),
     url(r'^zzb/', include('zzb.urls', namespace='zzb')),
