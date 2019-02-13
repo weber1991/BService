@@ -50,6 +50,7 @@ def index(req):
             startbs=datetime.datetime.now(),
             endbs=datetime.datetime.now(),
         )
+    import datetime
     now = datetime.datetime.now()
     if zztime:
         if now > zztime.startbm:
