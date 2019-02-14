@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>大朗镇公开招聘考试报名系统</title>
+<!-- For-Mobile-Apps-and-Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps-and-Meta-Tags -->
+
+<link href="{% static 'zzb/css/style.css' %}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'zzb/css/jquerysctipttop.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>考试报名系统</h1>
+<section>
+  <div class="stage">
+    <div class="cbImage active signin agileits">
+		<h3>{{ answer }}</h3>
+        <h2 style="color: black">
+          {{ message }}
+        </h2>
+	</div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="footer">
+  <p>&copy; 2018 All Rights Reserved | Design by weber</p>
+  </div>
+</section>
+<script src="{% static 'zzb/js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'zzb/coverflow-slideshow.js' %}"></script>
+<div style="text-align:center;">
+<p><a href="#" target="_blank">粤ICP备15088360号-6</a></p>
+</div>
+</body>
+</html>

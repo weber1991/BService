@@ -34,24 +34,14 @@ def zzb_temp(req):
     return render(req, 'zzb/zzb_temp.html',{'title': '告示','content':'功能未开放，敬请期待。'})
 
 def index(req):
-    try:
-        zztime = zzTime.objects.get(id=1)
-    except:
-        import datetime
-        zztime = zzTime.objects.create(
-            id = 1,
-            name= '招聘项目',
-            startcj=datetime.datetime.now(),
-            endcj=datetime.datetime.now(),
-            startbm=datetime.datetime.now(),
-            endbm=datetime.datetime.now(),
-            startdy=datetime.datetime.now(),
-            enddy=datetime.datetime.now(),
-            startbs=datetime.datetime.now(),
-            endbs=datetime.datetime.now(),
-        )
-    import datetime
     now = datetime.datetime.now()
+    try:
+        zztime = zzTime.objects.filter(state = True).latest()
+    except:
+        answer = "通 知"
+        message = "暂时没有招聘项目，请留意官方信息。"
+        return render(req, 'zzb/system_notice.html', {'answer':answer, 'message':message})
+        
     if zztime:
         if now > zztime.startbm:
             # session
