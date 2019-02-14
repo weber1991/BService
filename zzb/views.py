@@ -50,8 +50,8 @@ def index(req):
             startbs=datetime.datetime.now(),
             endbs=datetime.datetime.now(),
         )
+    now = datetime.datetime.now()
     if zztime:
-        now = datetime.datetime.now()
         if now > zztime.startbm:
             # session
             username = req.session.get('username', None)
