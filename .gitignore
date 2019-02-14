@@ -24,3 +24,6 @@ ehthumbs.db
 uwsgi.log
 uwsgi.pid
 uwsgi.sock
+
+# vs code 
+.vscode
