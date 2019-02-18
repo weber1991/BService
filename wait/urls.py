@@ -18,4 +18,5 @@ from wait.views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^test/$', wait_test, name='wait_test'),
 ]
