@@ -1,6 +1,6 @@
 # 忽略文件通用版本
 
-# python && django
+# python
 
 workspace.xml
 *.pyc
@@ -11,6 +11,8 @@ workspace.xml
 dist
 bulid
 
+
+# django 
 __pycache__/
 # migrations/
 

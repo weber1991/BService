@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django.shortcuts import render
 from wait.selectWaitingCount import selectWaitingCount
 from wait.selectWaitingCountFang import selectWaitingCountFang
@@ -5,7 +6,7 @@ from wait.selectWaitingCountNoWork import selectWaitingCountNoWork
 import datetime
 from wait.UsePymysql0 import dateQuery
 # Create your views here.
-
+from wait.models import *
 
 
 
@@ -31,3 +32,11 @@ def index(req):
         print(e)
         dataList = {}
         return render(req, 'wait/indexError.html', {'dataList':dataList})
+
+
+def wait_test(req):
+    serviceList = Service.objects.all()
+    return render(req, 'wait/wait_test.html', {
+        'message':'success',
+        'serviceList':serviceList,
+    })
