@@ -36,7 +36,14 @@ def index(req):
 
 def wait_test(req):
     serviceList = Service.objects.all()
-    return render(req, 'wait/wait_test.html', {
+    ticketList = Ticket.objects.all()
+    countList = []
+    for service in serviceList:
+        temp = {}
+        temp['servicename'] = service.servicename
+        temp['count'] = ticketList.filter(serviceno = service.serviceno).count()
+        countList.append(temp)
+    return render(req, 'wait/wait_test.html',{
         'message':'success',
-        'serviceList':serviceList,
+        'countList':countList,
     })

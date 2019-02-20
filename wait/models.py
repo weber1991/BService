@@ -57,3 +57,45 @@ class Service(models.Model):
 
     def __str__(self):
         return self.serviceno
+
+
+class Ticket(models.Model):
+    ticketno = models.CharField(db_column='TicketNo', primary_key=True, max_length=32)  # Field name made lowercase.
+    serviceno = models.IntegerField(db_column='ServiceNo', blank=True, null=True)  # Field name made lowercase.
+    printtime = models.DateTimeField(db_column='PrintTime')  # Field name made lowercase.
+    queuetime = models.DateTimeField(db_column='QueueTime', blank=True, null=True)  # Field name made lowercase.
+    starttime = models.DateTimeField(db_column='StartTime', blank=True, null=True)  # Field name made lowercase.
+    finishedtime = models.DateTimeField(db_column='FinishedTime', blank=True, null=True)  # Field name made lowercase.
+    cometime = models.CharField(db_column='ComeTime', max_length=512, blank=True, null=True)  # Field name made lowercase.
+    processedtime = models.CharField(db_column='ProcessedTime', max_length=512, blank=True, null=True)  # Field name made lowercase.
+    processedcounter = models.CharField(db_column='ProcessedCounter', max_length=256, blank=True, null=True)  # Field name made lowercase.
+    processedstaffid = models.CharField(db_column='ProcessedStaffID', max_length=512, blank=True, null=True)  # Field name made lowercase.
+    processingstatus = models.IntegerField(db_column='ProcessingStatus', blank=True, null=True)  # Field name made lowercase.
+    lastcounter = models.IntegerField(db_column='LastCounter', blank=True, null=True)  # Field name made lowercase.
+    processing = models.IntegerField(db_column='Processing', blank=True, null=True)  # Field name made lowercase.
+    nextworkflow = models.CharField(db_column='NextWorkflow', max_length=512, blank=True, null=True)  # Field name made lowercase.
+    nextcounter = models.CharField(db_column='NextCounter', max_length=256, blank=True, null=True)  # Field name made lowercase.
+    priority = models.IntegerField(db_column='Priority', blank=True, null=True)  # Field name made lowercase.
+    paused = models.IntegerField(db_column='Paused', blank=True, null=True)  # Field name made lowercase.
+    customerrating = models.CharField(db_column='CustomerRating', max_length=256, blank=True, null=True)  # Field name made lowercase.
+    delaybytime = models.IntegerField(db_column='DelayByTime', blank=True, null=True)  # Field name made lowercase.
+    delaywayvalue = models.IntegerField(db_column='DelayWayValue', blank=True, null=True)  # Field name made lowercase.
+    delaystarttime = models.DateTimeField(db_column='DelayStartTime', blank=True, null=True)  # Field name made lowercase.
+    delayticketspassed = models.IntegerField(db_column='DelayTicketsPassed', blank=True, null=True)  # Field name made lowercase.
+    parameters = models.CharField(db_column='Parameters', max_length=256, blank=True, null=True)  # Field name made lowercase.
+    name = models.CharField(db_column='Name', max_length=32, blank=True, null=True)  # Field name made lowercase.
+    regtime = models.CharField(db_column='RegTime', max_length=16, blank=True, null=True)  # Field name made lowercase.
+    deptname = models.CharField(db_column='DeptName', max_length=32, blank=True, null=True)  # Field name made lowercase.
+    reexam = models.IntegerField(db_column='Reexam', blank=True, null=True)  # Field name made lowercase.
+    mobilephone = models.CharField(db_column='MobilePhone', max_length=16, blank=True, null=True)  # Field name made lowercase.
+    smsresult = models.IntegerField(db_column='SmsResult', blank=True, null=True)  # Field name made lowercase.
+    smstimes = models.IntegerField(db_column='SmsTimes', blank=True, null=True)  # Field name made lowercase.
+    reservationstarttime = models.DateTimeField(db_column='ReservationStartTime', blank=True, null=True)  # Field name made lowercase.
+    reservationendtime = models.DateTimeField(db_column='ReservationEndTime', blank=True, null=True)  # Field name made lowercase.
+    reservationno = models.CharField(db_column='ReservationNo', max_length=32, blank=True, null=True)  # Field name made lowercase.
+    field_mask_to_v2 = models.DateTimeField(db_column='_MASK_TO_V2', blank=True, null=True)  # Field name made lowercase. Field renamed because it started with '_'.
+
+    class Meta:
+        managed = False
+        db_table = 'ticket'
+        unique_together = (('ticketno', 'printtime'),)

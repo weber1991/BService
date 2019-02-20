@@ -1,18 +1,20 @@
 {% extends 'wait/wait_base.html' %}
 
 {% block content_table %}
- 
-
-{{ message }}
-
-{% if message == 'success' %}
-
- {% for service in serviceList %}
-
-    {{ service.serviceno }}
-
- {% endfor %}
-
-{% endif %}
-
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+            <td width="40%" height="23" bgcolor="#F2F9E3" class="neirong">　业务名称</td>
+            <td width="20%" bgcolor="#F2F9E3" class="neirong"><div align="center">等候人数</div></td>
+            <td width="20%" bgcolor="#F2F9E3" class="neirong"><div align="center">窗口号</div></td>
+			<td width="20%" bgcolor="#F2F9E3" class="neirong"><div align="center">下一个号</div></td>
+        </tr>
+                            {% for count in countList %}
+                                <tr>
+                                    <td height="26" bgcolor="#FFFFFF" class="neirong">&nbsp;{{ count.servicename }}</td>
+                                    <td  height="30" align="center" bgcolor="#FFFFFF" class="neirong">{{ count.count }}</td>
+                                    <td  height="30" align="center" bgcolor="#FFFFFF" class="neirong">{{ count. }}</td>
+                                    <td  height="30" align="center" bgcolor="#FFFFFF" class="neirong">{{ count.TicketNo }}</td>
+                                </tr>
+                            {% endfor %}
+                    </table>
 {% endblock %}
