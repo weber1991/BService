@@ -39,3 +39,15 @@ def selectWaitingCount():
     cursor.close()
     conn.close()
     return wechatData
+
+
+
+'''
+构造的数据：
+1、counterno
+2、serviceno
+3、servicename
+4、serviceid
+5、waitingnumber
+6、ticketno
+'''

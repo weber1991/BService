@@ -99,3 +99,4 @@ class Ticket(models.Model):
         managed = False
         db_table = 'ticket'
         unique_together = (('ticketno', 'printtime'),)
+        get_latest_by = 'printtime'
