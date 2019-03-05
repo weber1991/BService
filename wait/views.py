@@ -52,7 +52,7 @@ def get_countList():
             temp_count = 0
             temp_waitnumberList = []
             for serviceno in temp_serviceno:
-                temp_count += ticketList.filter(serviceno = int(serviceno)).count()
+                temp_count += ticketList.filter(serviceno = int(serviceno),processingstatus=0).count()
                 # 获取每个业务所等候的时间最早那个
                 try:
                     temp_waitnumber = ticketList.filter(serviceno = int(serviceno), processingstatus=0).latest()
