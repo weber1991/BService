@@ -17,28 +17,34 @@ def get_servicelist(temp_str):
     except:
         return False
 
+def get_ticketList(serviceno):
+    '''
+        根据业务编号获取当前业务票号序列
+    '''
+    try:
+        ticketList = Ticket.objects.filter(serviceno = int(serviceno), processingstatus=0)
+        return ticketList
+    except:
+        return False
+
 def get_countList():
-     # serviceList = Service.objects.all()
     # 获取所有窗口关系表
     serviceList = Screlation.objects.all()
-    # 获取所有票号
-    ticketList = Ticket.objects.all()
     # 等候人数的序列
     '''
     构造的数据：
-    1、counterno
-    2、serviceno
-    3、servicename
-    4、serviceid
-    5、waitingnumber
-    6、ticketno
+    1、counterno，窗口号
+    2、servicename，业务名称
+    3、serviceid，排序号
+    4、waitingnumber，等候人数
+    5、ticketList，等候人数序列，以printtime为排序依据
     '''
     countList = []
 
 
     for service in serviceList:
         temp = {}
-        temp['serviceid'] = service.serviceid
+        temp['serviceid'] = service.serviceid   # 排序号
         temp['counterno'] = service.counterno   # 获取窗口号
         temp['servicename'] = service.servicename   # 获取业务代号名称
 
@@ -51,18 +57,18 @@ def get_countList():
             # 针对每个业务进行选择然后叠加
             temp_count = 0
             temp_waitnumberList = []
+            temp_ticketList = Ticket.objects.none()
             for serviceno in temp_serviceno:
-                temp_count += ticketList.filter(serviceno = int(serviceno),processingstatus=0).count()
-                # 获取每个业务所等候的时间最早那个
-                try:
-                    temp_waitnumber = ticketList.filter(serviceno = int(serviceno), processingstatus=0).latest()
-                    temp_waitnumberList.append(temp_waitnumber)
-                except:
-                    continue
-            # 如何获取下一个办理号码???
+                # 获取该项业务等候情况的序列
+                temp_ticketList_one = get_ticketList(serviceno)
+                # 获取每个业务所等待的人数，构造成每个窗口等候人数情况
+                temp_count += temp_ticketList_one.count()
+                # 将每个业务所等待的情况合并起来，构造成该窗口等候人数的情况
+                temp_ticketList = temp_ticketList | temp_ticketList_one
             
-            temp['waitingnumber'] = temp_count
-        
+            temp['waitingnumber'] = temp_count       
+            temp['ticketList'] = temp_ticketList.order_by('printtime') # 按时间排序
+
         countList.append(temp)
     return countList
 
