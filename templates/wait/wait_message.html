@@ -1,0 +1,29 @@
+{% extends 'wait/wait_base.html' %}
+
+
+
+{% block css %}
+.v3 {
+    color: transparent;
+    background-color : blue;
+    text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
+    -webkit-background-clip : text;
+    }
+{% endblock %}
+{% block content_table %}
+    <table width="100%" border="0" cellspacing="1" cellpadding="0">
+          <tr>
+            <td bgcolor="#FFFFFF">
+             <table width="100%" border="0" cellspacing="5" cellpadding="0">
+            <tr>
+                <td>
+                    <p class="t8 v3" >
+                        {{ message }}
+                    </p>
+                </td>
+            </tr>
+            </table>
+          </td>
+          </tr>
+        </table>
+{% endblock %}
