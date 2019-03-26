@@ -109,13 +109,13 @@ def get_workstate():
 
 def index(req):   
     workState = get_workstate()
-    #print(workState)
-    #if workState['dayState'] != 0:
-    #    message = '您好，今天是非工作日，祝您假日愉快。'
-    #    return render(req, 'wait/wait_message.html', {'message': message})
-    #elif workState['timeState'] != 0:
-    #    message = '您好，现在是非工作时间，暂无票号轮候情况。'
-    #    return render(req, 'wait/wait_message.html', {'message': message})
+    # print(workState)
+    if workState['dayState'] != 0:
+        message = '您好，今天是非工作日，祝您假日愉快。'
+        return render(req, 'wait/wait_message.html', {'message': message})
+    elif workState['timeState'] != 0:
+        message = '您好，现在是非工作时间，暂无票号轮候情况。'
+        return render(req, 'wait/wait_message.html', {'message': message})
     dataList = get_countList()
     return render(req, 'wait/wait_index.html', {'dataList': dataList})
  
