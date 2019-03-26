@@ -106,61 +106,16 @@ def get_workstate():
 
 
 
-# def index(req):
-#     try:
-#         dateToday = datetime.datetime.now().date().strftime('%Y%m%d')
-#         dateHour = datetime.datetime.now().hour  # type is int
-#         # status = dateQuery(dateToday)
-#         status = '0'
-#         if status != '0':  # '0' is working , '1'is weekend, '2' is holiday
-#             print('this is ' + status + '.')
-#             dataList = {}
-#             return render(req, 'wait/indexHoliday.html', {'dataList': dataList})
-#         elif (dateHour <= 22) and (dateHour >= 7):  # working time is 8:00--18:00
-#             print('this is working.')
-#             dataList = selectWaitingCount()
-#             return render(req, 'wait/indexShowData.html', {'dataList': dataList})
-#         else:
-#             print('this is no work.')
-#             dataList = selectWaitingCountNoWork()
-#             return render(req, 'wait/indexnowork.html', {'dataList': dataList})
-#     except Exception as e:
-#         print(e)
-#         dataList = {}
-#         return render(req, 'wait/indexError.html', {'dataList':dataList})
-
-
-# def index(req):   
-#     try:
-#         dateToday = datetime.datetime.now().date().strftime('%Y%m%d')
-#         dateHour = datetime.datetime.now().hour  # type is int
-#         # status = dateQuery(dateToday)
-#         status = '0'
-#         if status != '0':  # '0' is working , '1'is weekend, '2' is holiday
-#             print('this is ' + status + '.')
-#             dataList = {}
-#             return render(req, 'wait/indexHoliday.html', {'dataList': dataList})
-#         elif (dateHour <= 22) and (dateHour >= 7):  # working time is 8:00--18:00
-#             print('this is working.')
-#             dataList = get_countList()
-#             return render(req, 'wait/indexShowData.html', {'dataList': dataList})
-#         else:
-#             print('this is no work.')
-#             dataList = selectWaitingCountNoWork()
-#             return render(req, 'wait/indexnowork.html', {'dataList': dataList})
-#     except Exception as e:
-#         print(e)
-#         dataList = {}
-#         return render(req, 'wait/indexError.html', {'dataList':dataList})
 
 def index(req):   
     workState = get_workstate()
-    if workState['dayState'] != 0:
-        message = '您好，今天是非工作日，祝您假日愉快。'
-        return render(req, 'wait/wait_message.html', {'message': message})
-    elif workState['timeState'] != 0:
-        message = '您好，现在是非工作时间，暂无票号轮候情况。'
-        return render(req, 'wait/wait_message.html', {'message': message})
+    #print(workState)
+    #if workState['dayState'] != 0:
+    #    message = '您好，今天是非工作日，祝您假日愉快。'
+    #    return render(req, 'wait/wait_message.html', {'message': message})
+    #elif workState['timeState'] != 0:
+    #    message = '您好，现在是非工作时间，暂无票号轮候情况。'
+    #    return render(req, 'wait/wait_message.html', {'message': message})
     dataList = get_countList()
     return render(req, 'wait/wait_index.html', {'dataList': dataList})
  
