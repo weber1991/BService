@@ -36,8 +36,9 @@ def zzb_temp(req):
 def index(req):
     now = datetime.datetime.now()
     try:
-        zztime = zzTime.objects.filter(state = True).latest()
-    except:
+        zztime = zzTime.objects.filter(state = True)[0]
+    except Exception as e:
+        # print(e)
         answer = "通 知"
         message = "暂时没有招聘项目，请留意官方信息。"
         return render(req, 'zzb/system_notice.html', {'answer':answer, 'message':message})
