@@ -34,7 +34,7 @@
         	<select name="job">
                 <option value="" selected="selected"></option>
                 {% for job in joblist %}
-                <option value="{{ job.id }}">{{ job.daihao }}</option>
+                <option value="{{ job.id }}">{{ job.name }}</option>
                 {% endfor %}
             </select>
         </div>
