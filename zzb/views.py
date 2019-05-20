@@ -961,13 +961,15 @@ def chengji_data(req):
     if zztime:
         now = datetime.datetime.now()
         if now < zztime.startcj:
-            title = '未到查询成绩时间'
-            content = '查询成绩时间为' + str(zztime.startcj)
+            title = '暂不可查询成绩'
+            # content = '查询成绩时间为' + str(zztime.startcj)
+            content = ''
             return render(req, 'zzb/zzb_temp.html', {'title': title, 'content': content})
         # session
         if now > zztime.endcj:
             title = '已超过查询成绩时间'
-            content = '查询成绩最迟时间为' + str(zztime.endcj)
+            # content = '查询成绩最迟时间为' + str(zztime.endcj)
+            content = ''
             return render(req, 'zzb/zzb_temp.html', {'title': title, 'content': content})
 
     username = req.session.get('username', None)
