@@ -594,7 +594,7 @@ def paper_list(req):
             #title = '未到打印时间'
             #content = '开放打印时间为'+ str(zztime.startdy)
             title = '通知'
-            content = '请各位考生不需要打印准考证，考试时间、地点将以短信形式另行通知，请近期注意查收。届时凭个人身份证以报名表即可参加考试。'
+            content = '请各位考生不需要打印准考证，考试时间、地点将以短信形式另行通知，请近期注意查收。届时凭个人身份证及报名表即可参加考试。'
             return render(req, 'zzb/zzb_temp.html', {'title':title, 'content':content})
     # session
         if now > zztime.enddy:
