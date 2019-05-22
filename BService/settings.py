@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'wait',
     'zzb',
     'wxjz',
+    'dlzp',
 ]
 
 MIDDLEWARE = [

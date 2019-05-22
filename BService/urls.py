@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^dlnews/', include('dlnews.urls', namespace='dlnews')),
     url(r'^zzb/', include('zzb.urls', namespace='zzb')),
     url(r'^wxjz/', include('wxjz.urls', namespace='wxjz')),
+    url(r'^dlzp/', include('dlzp.urls', namespace='dlzp')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
 
     url(r'^admin/uploads/(?P<dir_name>[^/]+)$', upload_image, name='upload_image'),
