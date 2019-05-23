@@ -211,7 +211,7 @@ class zzSysBase(models.Model):
     '''
     name = models.CharField(max_length=128, verbose_name='配置选项', default='待定')
     content = models.TextField(verbose_name='配置内容')
-    note = TextField(verbose_name='备注', default = '',null = True, blank=True)
+    note = models.TextField(verbose_name='备注', default = '',null = True, blank=True)
 
     def __str__(self):
         return self.name
