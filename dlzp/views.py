@@ -67,8 +67,9 @@ def index(req):
                 return redirect('dlzp:login')
         else:
             answer = '未到开放报名时间'
-            datetime_str = zzTime.startbm.strftime("%Y-%m-%d %H:%M:%S")
-            message = '开放报名时间为：' + datetime_str
+           # datetime_str = zzTime.startbm.strftime("%Y-%m-%d %H:%M:%S")
+           # message = '开放报名时间为：' + datetime_str
+            message = ''
             return render(req, 'dlzp/login_answer.html', {'message': message, 'answer': answer})
     else:
         answer = '系统维护中'
