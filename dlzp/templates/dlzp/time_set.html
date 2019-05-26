@@ -1,0 +1,87 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'zzb/css/base.css'%}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-reg.css'%}" />
+</head>
+
+<body>
+<div class="title"><h2>考试时间配置</h2></div>
+<form name='mydata' action="{% url 'dlzp:time_set' %}" method="post" onsubmit="return checksubmit()" enctype="multipart/form-data">{% csrf_token %}
+<div class="main">
+    <p class="short-input ue-clear">
+    	<label>*开始报名时间：</label>
+        <input type="text"  required="required" name="met_startbm" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.startbm }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*结束报名时间：</label>
+        <input type="text"  required="required" name="met_endbm" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.endbm }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*开始打印时间：</label>
+        <input type="text"  required="required" name="met_startdy" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.startdy }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*结束打印时间：</label>
+        <input type="text"  required="required" name="met_enddy" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.enddy }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*开始笔试时间：</label>
+        <input type="text"  required="required" name="met_startbs" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.startbs }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*结束笔试时间：</label>
+        <input type="text"  required="required" name="met_endbs" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.endbs }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*开始查询时间：</label>
+        <input type="text"  required="required" name="met_startcj" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.startcj }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label>*结束查询时间：</label>
+        <input type="text"  required="required" name="met_endcj" placeholder="例如：2010-7-1 00:00:00" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{{ timeList.endcj }}"/>
+        <span style="color: red;"><em>*</em>请输入正确的时间格式</span>
+    </p>
+
+    <p class="short-input ue-clear">
+    	<label style="color: red;">{{ answer }}</label>
+    </p>
+</div>
+<div class="btn ue-clear">
+	<input type="submit" value="保存" />
+</div>
+</form>
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js'%}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js'%}"></script>
+    <script>
+        function checksubmit() {
+
+            if(confirm("确定保存？"))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+</html>

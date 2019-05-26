@@ -1,0 +1,113 @@
+{% load sweat_change %}
+
+{% if joinjob %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>zkz</title>
+<style type="text/css">
+	body {
+		font-size: 16px;line-height:24px;
+	}
+</style>
+</head>
+<body>
+	<div align="center">
+		<div style="height: 20px"></div>
+		<div style="width: 700px;font-size: 25px;line-height:35px;"><strong>东莞市大朗镇公开招聘聘员笔试</strong><br/><strong>&nbsp;准&nbsp;考&nbsp;证</strong></div>
+		<div style="height: 40px"></div>
+			<div style="width: 600px">
+				<div style="width: 400px;float:left;" >
+					<div style="width: 350px;float:right;font-weight:bold;" align="left">
+						姓    名：{{ joinjob.user.name }}</br>
+						准考证号：{{ joinjob.zkzh|zkz_replace }}</br>
+						身份证号：{{ joinjob.user.idcard }}</br>
+						报考岗位：{{ joinjob.job.daihao }}</br>
+						考试地点：东莞市大朗第一中学</br>
+						地    址：东莞市大朗镇富民中路467号</br>
+						试    室：{{ joinjob.sweat|get_class }}</br>
+						座 位 号：{{ joinjob.sweat|get_seat }}</br>
+						考试时间：2018年12月22日上午9:30-11:30</br>
+
+					</div>
+				</div>
+				<div style="width: 200px;float:right;" align="left">
+				<img src="{{ joinjob.user.user.logo }}" height="160" width="120px"></img>
+				</div>
+			</div>
+			<div style="clear:both;height: 40px"></div>
+			<div style="width: 600px" align="left">
+				注意事项：</br>
+				1、考生必须带齐准考证、身份证，方可进入考场。</br>
+				2、考生自备橡皮、2B铅笔、黑色字迹的钢笔、签字笔。</br>
+				3、不准携带手机、电子记事本、电子表等电子设备进入试室，已带的须关闭后与其他物品一同放在指定位置，不得带至座位。</br>
+				4、考试前30分钟可进入考场；考试开始30分钟后，不得入场；考试结束前，考生不可交卷。</br>
+				5、严禁将答题卡、题本、试卷、草稿纸等带出考场。</br>
+				6、考生必须认真填写（涂）答题卡，若因填写（涂）不清或错误，影响阅卷评分的，责任自负。</br>
+				7、考生必须遵守考场规则，若有作弊行为，将被取消考试资格。</br>
+				8、考生应在考试前一天熟悉考场地址和交通路线。</br>
+			</div>
+
+	</div>
+
+
+</body>
+</html>
+{% else %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>zkz</title>
+<style type="text/css">
+	body {
+		font-size: 16px;line-height:24px;
+	}
+</style>
+</head>
+<body>
+	<div align="center">
+		<div style="height: 20px"></div>
+		<div style="width: 700px;font-size: 25px;line-height:35px;"><strong>东莞市大朗镇2018年公开招聘聘员笔试</strong><br/><strong>准  考  证</strong></div>
+		<div style="height: 40px"></div>
+			<div style="width: 600px">
+				<div style="width: 400px;float:left;" >
+					<div style="width: 350px;float:right;font-weight:bold;" align="left">
+						姓    名：</br>
+						准考证号：</br>
+						身份证号：</br>
+						报考岗位：</br>
+						考试地点：</br>
+						地    址：</br>
+						试    室：</br>
+						座 位 号：</br>
+						考试时间：</br>
+
+					</div>
+				</div>
+				<div style="width: 200px;float:right;" align="left">
+				<img src="/" height="160" width="120px"></img>
+				</div>
+			</div>
+			<div style="clear:both;height: 40px"></div>
+			<div style="width: 600px" align="left">
+				注意事项：</br>
+				1、考生必须带齐准考证、身份证，方可进入考场。</br>
+				2、考生自备橡皮、2B铅笔、黑色字迹的钢笔、签字笔。</br>
+				3、严禁将传呼机、对讲机、移动电话、电子记事本、计算器等电子设备带至座位。</br>
+				4、考试前20分钟可进入考场；考试开始30分钟后，不得入场；开考30分钟后，才能交卷出场。</br>
+				5、严禁将答题卡、题本、试卷、草稿纸等带出考场。</br>
+				6、考生必须认真填写（涂）答题卡，若因填写（涂）不清或错误，影响阅卷评分的，责任自负。</br>
+				7、考生必须遵守考场规则，若有作弊行为，将被取消考试资格。</br>
+				8、考生应在考试前一天熟悉考场地址和交通路线。</br>
+
+			</div>
+
+	</div>
+
+
+</body>
+</html>
+
+{% endif %}

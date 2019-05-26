@@ -14,6 +14,8 @@
 <!-- 生成验证码的js要放head里面，以便一开始就生成。 -->
 <script type="text/javascript" src="/static/dlzp/js/verificationCodeJs.js"></script>
 <link href="/static/dlzp/css/verificationCodeCss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/dlzp/js/checkIdcard.js"></script>
+
 
 <link href="/static/dlzp/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css" />
 <link href="/static/dlzp/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
@@ -32,18 +34,30 @@
 
 	<div id="loginform" class="loginBox">
     
-		<form class="form form-horizontal" action="{% url 'dlzp:login' %}" method="post" onsubmit="return checkFormLogin()">
+		<form class="form form-horizontal" action="{% url 'dlzp:register' %}" method="post" onsubmit="return checkFormLogin()">
 			{% csrf_token %}
             <div class="row cl">
 				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
 				<div class="formControls col-xs-8">
-					<input id="" name="idcard" type="text" placeholder="身份证" class="input-text size-L">
+					<input id="" name="username" type="text" placeholder="账户" class="input-text size-L">
 				</div>
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
 				<div class="formControls col-xs-8">
-					<input id="" name="password" type="password" placeholder="密码" class="input-text size-L">
+					<input id='reg_idcard' onchange="checkidcard()" name="idcard" type="text" placeholder="身份证" class="input-text size-L">
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+				<div class="formControls col-xs-8">
+					<input id="" name="password1" type="password" placeholder="密码" class="input-text size-L">
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+				<div class="formControls col-xs-8">
+					<input id="" name="password2" type="password" placeholder="再输入密码" class="input-text size-L">
 				</div>
 			</div>
 			<div class="row cl">
@@ -56,25 +70,11 @@
 
 			<div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3">
-					<input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+					<input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;">
 					<input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
 				</div>
 			</div>
 		</form>
-		<div class="row cl">
-			<div class="formControls col-xs-8 col-xs-offset-3">
-				<a href="{% url 'dlzp:register' %}">
-				<button name="" class="btn btn-success radius size-L" >
-					注     册
-				</button>
-				</a>
-				<a href="{% url 'dlzp:reset_password' %}">
-				<button name="" class="btn btn-success radius size-L" >
-					找回密码
-				</button>
-				</a>
-			</div>
-		</div>
 	</div>
 </div>
 <div class="footer">Design by weber</div>

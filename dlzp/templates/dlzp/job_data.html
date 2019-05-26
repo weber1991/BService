@@ -1,0 +1,61 @@
+﻿{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-reg.css' %}" />
+<title>查看岗位</title>
+</head>
+
+<body>
+<div class="title"><h2>岗位信息</h2></div>
+<div class="main">
+	<p class="short-input ue-clear newstyle">
+    	<label>招考岗位：</label>{{ job.name }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>岗位代码：</label>{{ job.daihao }}
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	<label>招聘人数：</label>{{ job.count }}
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	<label>学历要求：</label>{{ job.education }}
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	<label>专业要求：</label>{{ job.major }}
+    </p>
+    <p class="long-input ue-clear newstyle">
+    	<label>其他要求：</label>{{ job.other }}
+    </p>   
+    <p class="long-input ue-clear newstyle">
+    	<label>备注：</label>{{ job.note }}
+    </p>
+
+{#    <p class="long-input ue-clear newstyle">#}
+{#    	<label>最低年龄限制条件：</label>{{ job.hold0 }}#}
+{#    </p>#}
+
+</div>
+<div class="btn1 ue-clear">
+	<a href="{% url "dlzp:join_job" %}" class="confirm">我要报名</a>
+</div>
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").toggle();
+	return false;
+});
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(".select-title").find("span").text(txt);
+});
+
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

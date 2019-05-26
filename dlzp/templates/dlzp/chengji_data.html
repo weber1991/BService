@@ -1,0 +1,60 @@
+{% load static %}
+{% load sweat_change %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-reg.css' %}" />
+    <link rel="stylesheet" href="{% static 'zzb/css/info-det.css' %}" />
+<title>考试报名系统</title>
+</head>
+
+<body>
+<div class="title"><h2>报考信息</h2></div>
+<div class="main">
+	<p class="short-input ue-clear newstyle">
+    	<label>姓名：</label>{{ joinjob.user.name }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>准考证号：</label>{{ joinjob.zkzh }}
+    </p>
+    <p class="short-input ue-clear newstyle">
+    	<label>身份证号码：</label>{{ joinjob.user.idcard }}
+    </p>
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>报考岗位：</label>{{ joinjob.job.daihao }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>笔试成绩：</label>{{ joinjob.score }}
+    </p>
+       <p class="short-input ue-clear newstyle">
+    	<label>笔试名次：</label>{{ joinjob.note }}
+    </p>
+{#       <p class="short-input ue-clear newstyle">#}
+{#    	<label>是否入围面试：</label>{{ joinjob.state }}#}
+{#    </p>#}
+</div>
+
+
+</div>
+
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").toggle();
+	return false;
+});
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(".select-title").find("span").text(txt);
+});
+
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

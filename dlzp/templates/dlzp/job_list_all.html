@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'zzb/css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/info-mgt.css' %}" />
+<link rel="stylesheet" href="{% static 'zzb/css/WdatePicker.css' %}" />
+<title>岗位发布</title>
+    {% block js %}{% endblock %}
+</head>
+
+<body>
+<div class="title"><h2>岗位发布</h2></div>
+<div class="table-operate ue-clear">
+	<a href="{% url 'dlzp:job_add' %}" class="add">新增</a>
+</div>
+<div class="table-box">
+	<table>
+    	<thead>
+        	<tr>
+            	<th class="num">序号</th>
+                <th class="name">岗位代号</th>
+                <th class="name">招考岗位</th>
+                <th class="num">招聘人数</th>
+                <th class="num">状态</th>
+                <th class="process">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for job in joblistall %}
+        	<tr>
+            	<td class="num">{{ forloop.counter }}</td>
+                <td class="name">{{ job.daihao }}</td>
+                <td class="name" style="border:1px dotted #c7c7c7;padding-left: 20px">{{ job.name }}</td>
+                <th class="num" style="border:1px dotted #c7c7c7;">{{ job.count }}</th>
+                <th class="num">{{ job.state }}</th>
+                <td class="process">
+                    <a href="{% url 'dlzp:job_editor' job.id %}">编辑</a>
+                    <a href="{% url 'dlzp:job_change' job.id %}">&nbsp;更变状态</a>
+                    <a href="{% url 'dlzp:job_delete' job.id %}" onclick="if(confirm('确认删除吗？')==false)return false;">&nbsp;删除</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+
+
+</div>
+<div class="pagination ue-clear"></div>
+</body>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/WdatePicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'zzb/js/jquery.pagination.js' %}"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").hide();
+	$(this).siblings($(".select-list")).show();
+	return false;
+})
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(this).parent($(".select-list")).siblings($(".select-title")).find("span").text(txt);
+})
+
+
+$("tbody").find("tr:odd").css("backgroundColor","#eff6fa");
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>
