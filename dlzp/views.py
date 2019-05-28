@@ -28,6 +28,18 @@ def zzb_temp(req):
     return render(req, 'zzb/zzb_temp.html',{'title': '告示','content':'功能未开放，敬请期待。'})
 
 
+# 
+def login_decorator(func):
+    '''
+    身份证验证装饰器
+    '''
+    def warpper(req, *args, **kwargs):
+        if not req.session.get('username', None):
+            return redirect('dlzp:login')
+        return func(req, *args, **kwargs)
+    return warpper       
+
+
 def login(req):
     if req.method == 'GET':
         return render(req, 'dlzp/login.html', {})
@@ -74,6 +86,7 @@ def index(req):
     else:
         answer = '系统维护中'
         return render(req, 'dlzp/login_answer.html', {'message': '', 'answer':answer})
+
 
 
 def register(req):
