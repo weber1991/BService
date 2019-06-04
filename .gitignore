@@ -29,3 +29,9 @@ uwsgi.sock
 
 # vs code 
 .vscode
+
+
+
+# other
+*.xls
+*.xlsx
