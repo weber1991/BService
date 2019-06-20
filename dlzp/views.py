@@ -652,7 +652,14 @@ def paper_list(req):
     if len(joinjoblist) == 0:
         return redirect('dlzp:join_job')
     joinjob = joinjoblist.first()
-    return render(req, 'dlzp/paper_list.html', {'joinjob': joinjob})
+    test_where = zzSysBase.objects.filter(name='考试地点')[0]
+    test_address = zzSysBase.objects.filter(name='考试地址')[0]
+    test_time = zzSysBase.objects.filter(name='考试时间')[0]
+    return render(req, 'dlzp/paper_list.html', {
+        'joinjob': joinjob,
+        'test_where':test_where,
+        'test_address':test_address,
+        'test_time':test_time})
 
 
 
@@ -705,10 +712,21 @@ def print_zkz(req, id):
         return render(req, 'dlzp/zzb_zkz.html', {})
 
     userextend = userextendlist.first()
+    test_where = zzSysBase.objects.filter(name='考试地点')[0]
+    test_address = zzSysBase.objects.filter(name='考试地址')[0]
+    test_time = zzSysBase.objects.filter(name='考试时间')[0]
     if joinjob.user == userextend:
-        return render(req, 'dlzp/zzb_zkz.html',{'joinjob':joinjob})
+        return render(req, 'dlzp/zzb_zkz.html',{
+            'joinjob':joinjob,
+            'test_where':test_where,
+            'test_address':test_address,
+            'test_time':test_time})
     if user.power > 0:
-        return render(req, 'dlzp/zzb_zkz.html', {'joinjob':joinjob})
+        return render(req, 'dlzp/zzb_zkz.html', {
+            'joinjob':joinjob,
+            'test_where':test_where,
+            'test_address':test_address,
+            'test_time':test_time})
     return render(req, 'dlzp/zzb_zkz.html', {})
 
 def joinjob_excel(req):
@@ -1239,3 +1257,34 @@ def cleanUser(req):
     for user in zzUserList:
         user.delete()
     return redirect('dlzp:database_set')
+
+
+@login_decorator
+def set_SysBase(req):
+    '''
+    系统基本配置
+    基于sysbase
+    '''
+    # 这里有个bug，因为name不是唯一标识，可能出现重复冲突,所以不用get
+    # 解决方法：1、设为唯一；2、限定添加；
+    test_where = zzSysBase.objects.filter(name='考试地点')[0]
+    test_address = zzSysBase.objects.filter(name='考试地址')[0]
+    test_time = zzSysBase.objects.filter(name='考试时间')[0]
+    if req.method == 'GET':
+        return render(req, 'dlzp/sysbase_set.html', locals())
+    else:
+        test_address_post = req.POST.get('test_address')
+        test_where_post = req.POST.get('test_where')
+        test_time_post = req.POST.get('test_time')
+
+        test_where.content = test_where_post
+        test_where.save()
+
+        test_address.content = test_address_post
+        test_address.save()
+
+        test_time.content = test_time_post
+        test_time.save()
+
+        answer = '考试配置已更新'
+        return render(req, 'dlzp/sysbase_set.html', locals())

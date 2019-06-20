@@ -66,6 +66,8 @@ urlpatterns = [
 
     url(r'^time_set/$', time_set, name='time_set'),
 
+    url(r'^sysbase_set/$', set_SysBase, name='sysbase_set'),
+
     url(r'^database_set/$', database_set, name='database_set'),
 
     url(r'^cleanuser/$', cleanUser, name='cleanuser'),

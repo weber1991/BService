@@ -86,13 +86,15 @@ def get_workstate():
     ans = {'timeState':0, 'dayState':0}
     now = datetime.datetime.now()
     dayStr = now.strftime("%Y%m%d")
-
-    APIUrl = 'https://api.goseek.cn/Tools/holiday?date='
-    api = APIUrl + dayStr
-    req = requests.get(api)
-    answer = json.loads(req.text)
-    req.close()
-    ans['dayState'] = answer['data']
+    try:
+        APIUrl = 'https://api.goseek.cn/Tools/holiday?date='
+        api = APIUrl + dayStr
+        req = requests.get(api)
+        answer = json.loads(req.text)
+        req.close()
+        ans['dayState'] = answer['data']
+    except:
+        ans['dayState'] = 0
 
     timeStr = int(now.strftime('%H%M'))
     # 工作时间为8：30-12：00，14：00-17：30

@@ -219,3 +219,10 @@ class zzSysBase(models.Model):
     class Meta:
         verbose_name = '系统基本配置'
         verbose_name_plural = verbose_name
+
+try:
+    zzSysBase.objects.get_or_create(id=1, name='考试地点', content='待定')
+    zzSysBase.objects.get_or_create(id=2, name='考试地址', content='待定')
+    zzSysBase.objects.get_or_create(id=3, name='考试时间', content='待设定')
+except:
+    pass
