@@ -39,6 +39,8 @@ urlpatterns = [
     url(r'^join_show/(?P<id>[0-9]+)/$', join_show, name='join_show'),  # 展示个人信息
     url(r'^join_count/$', join_count, name='join_count'), # 统计数据
     url(r'^join_job_count/(?P<id>[0-9]+)/$', join_job_count, name='join_job_count'), # 展示每个业务分别的报考人数
+    url(r'^join_job_faile_list/$', join_faile_list, name = 'join_faile_list'), # 审核不通过名单
+    url(r'^join_job_faile/$', joinjob_faile, name = 'join_faile'), # 添加审核不通过人员
 
     url(r'^seat_crate/$', seat_create, name='seat_crate'), # 生成座位
     url(r'^seat_list/$', seat_list, name='seat_list'), # 显示座位列表

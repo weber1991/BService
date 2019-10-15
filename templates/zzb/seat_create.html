@@ -13,7 +13,7 @@
 <form action="{% url 'zzb:seat_crate'%}" method="post" onsubmit="return checkseat();">
 <div class="main">
     <p class="short-input ue-clear">{% csrf_token %}
-    	<label>报考人数：</label>{{ joinjobcount }}
+    	<label>报考人数(除去审核不通过)：</label>{{ joinjobcount }}
     </p>
     <p class="short-input ue-clear">{% csrf_token %}
     	<label>试室数：</label>

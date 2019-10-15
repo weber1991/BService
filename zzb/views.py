@@ -337,6 +337,9 @@ def job_change(req, id):
 
 # 报名
 def join_job(req):
+    ''' 
+    报名状态：（初始）已提交报名-》审核通过 or 审核不通过 
+    '''
     username = req.session.get('username', None)
     user = zzUser.objects.get(idcard=username)
     zztime = zzTime.objects.get(id=1)
@@ -433,17 +436,76 @@ def join_list_all(req):
                                                   'pageDict':pageDict,
                                                   'firstCount':firstCount})
 
+def join_faile_list(req):
+    # 审核不通过名单
+    pageDict = {}
+    pageDict["allCount"] = zzJoinJob.objects.filter(state = '0').count()
+    pageDict["allPage"] = int(pageDict["allCount"] / PAGECOUNT)
+    if (pageDict["allCount"] % PAGECOUNT) != 0:
+        pageDict["allPage"] += 1
+    try:
+        pageDict["nowPage"] = int(req.GET.get("nowPage", 1))
+        pageDict["pageType"] = req.GET.get("pageType",'')
+    except:
+        pass
+    if pageDict["pageType"] == 'next':
+        pageDict["nowPage"] += 1
+    elif pageDict["pageType"] == 'last':
+        pageDict["nowPage"] -= 1
+
+    firstCount = (pageDict["nowPage"]-1)*PAGECOUNT
+
+    joinjoblistall = zzJoinJob.objects.filter(state = '0')[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
+    return render(req, 'zzb/joinjob_faile_list.html', {'joinjoblistall': joinjoblistall,
+                                                  'pageDict':pageDict,
+                                                  'firstCount':firstCount})
+
+def joinjob_faile(req):
+    if req.method == 'GET':
+        return render(req, 'zzb/joinjob_faile.html',{})
+    else:
+        idcard = req.POST.get('idcard')
+        try:
+            join_state_idcard(idcard, '0')
+            return redirect('zzb:join_faile_list')
+        except:
+            return redirect('zzb:join_faile_list')
+
+
+
+def join_reset(req, id):
+    joinjob = zzJoinJob.objects.get(id = id)
+    joinjob.state = '已提交报名'
+    joinjob.save()
+    return redirect('zzb:join_faile_list')
+    
+
 def join_success(req, id):
     joinjob = zzJoinJob.objects.get(id = id)
     joinjob.state = '审核通过'
     joinjob.save()
     return redirect('zzb:join_list_all')
 
+# 审核不通过
 def join_faile(req, id):
     joinjob = zzJoinJob.objects.get(id = id)
-    joinjob.state = '待审核'
+    joinjob.state = '审核不通过'
     joinjob.save()
     return redirect('zzb:join_list_all')
+
+def join_state_idcard(idcard, state):
+    '''
+    根据用户身份证号码来修改考试状态
+    修改为0则代表审核不通过
+    '''
+    try:
+        joinjob_userextend = zzUserExtend.objects.filter(idcard = idcard).first()
+        joinjob_get = zzJoinJob.objects.get(userextend = joinjob_userextend)
+        joinjob_get.state = state
+        joinjob_get.save()
+        return True
+    except:
+        return False
 
 def join_count(req):
     # 构造序列
@@ -451,7 +513,9 @@ def join_count(req):
 
     countlist = []
     joblist = zzJob.objects.filter(state = '发布')
-    joinjoblist = zzJoinJob.objects.all()
+    # joinjoblist = zzJoinJob.objects.all()
+    # 调用审核通过的名单
+    joinjoblist = zzJoinJob.objects.exclude(state = '0')
 
     for job in joblist:
         count = {}
@@ -495,6 +559,7 @@ def print_joinjob(req, id):
     return render(req, 'zzb/zzb_bmb.html', {})
 
 
+
 # 座位生成
 def seat_create(req):
     import random
@@ -508,7 +573,8 @@ def seat_create(req):
         return redirect('zzb:login')
 
 
-    joinjoblist = zzJoinJob.objects.all()
+    # 获取所有报名名单，需要进行过滤，资料审核不通过无法生成座位。
+    joinjoblist = zzJoinJob.objects.exclude(state = '0')
     if req.method == 'GET':
         return render(req, 'zzb/seat_create.html', {'joinjobcount':len(joinjoblist)})
     else:
@@ -562,7 +628,7 @@ def seat_list(req):
     if username is None:
         return redirect('zzb:login')
     pageDict = {}
-    pageDict["allCount"] = zzJoinJob.objects.count()
+    pageDict["allCount"] = zzJoinJob.objects.exclude(state = '0').count()
     pageDict["allPage"] = int(pageDict["allCount"] / PAGECOUNT)
     if (pageDict["allCount"] % PAGECOUNT) != 0:
         pageDict["allPage"] += 1
@@ -577,9 +643,9 @@ def seat_list(req):
         pageDict["nowPage"] -= 1
 
     try:
-        joinjoblist = zzJoinJob.objects.all().order_by("sweat")[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
+        joinjoblist = zzJoinJob.objects.exclude(state = '0').order_by("sweat")[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
     except:
-        joinjoblist = zzJoinJob.objects.all()[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
+        joinjoblist = zzJoinJob.objects.exclude(state = '0')[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
 
     return render(req, 'zzb/seat_list.html',
                   {'joinjoblist': joinjoblist,
@@ -612,6 +678,10 @@ def paper_list(req):
     if len(joinjoblist) == 0:
         return redirect('zzb:join_job')
     joinjob = joinjoblist.first()
+    if joinjob.state == '0':
+        title = '通知'
+        content = '经初步审核，您不符合招聘报名条件，详情可致电82816212。'
+        return render(req, 'zzb/zzb_temp.html', {'title': title, 'content': content})
     return render(req, 'zzb/paper_list.html', {'joinjob': joinjob})
 
 
@@ -622,7 +692,7 @@ def paper_list_all(req):
         return redirect('zzb:login')
 
     pageDict = {}
-    pageDict["allCount"] = zzJoinJob.objects.count()
+    pageDict["allCount"] = zzJoinJob.objects.exclude(state = 0).count()
     pageDict["allPage"] = int(pageDict["allCount"] / PAGECOUNT)
     if (pageDict["allCount"] % PAGECOUNT) != 0:
         pageDict["allPage"] += 1
@@ -637,9 +707,9 @@ def paper_list_all(req):
         pageDict["nowPage"] -= 1
 
     try:
-        joinjoblist = zzJoinJob.objects.all().order_by("sweat")[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
+        joinjoblist = zzJoinJob.objects.exclude(state = 0).order_by("sweat")[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
     except:
-        joinjoblist = zzJoinJob.objects.all()[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
+        joinjoblist = zzJoinJob.objects.exclude(state = 0)[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
     return render(req, 'zzb/paper_list_all.html',
                   {'joinjoblist':joinjoblist,
                    'pageDict':pageDict})
@@ -765,7 +835,8 @@ def joinjob_excel(req):
         return response
 
 def seat_excel(req):
-    joinjoblist = zzJoinJob.objects.all().order_by('sweat')
+    # joinjoblist = zzJoinJob.objects.all().order_by('sweat')
+    joinjoblist = zzJoinJob.objects.exclude(state = '0').order_by('sweat')
     class_count = int(len(joinjoblist)/30) + 1
     class_count_index = 1
     ws = Workbook(encoding='utf-8')
@@ -818,6 +889,7 @@ def seat_excel(req):
     return response
 
 def seat_data_excel(req):
+
     joinjoblist = zzJoinJob.objects.all().order_by('sweat')
     class_count = int(len(joinjoblist)/30) + 1 # 试室数
     class_count_index = 1
@@ -1199,3 +1271,6 @@ def cleanUser(req):
     for user in zzUserList:
         user.delete()
     return redirect('zzb:database_set')
+
+def test_base(req):
+    pass

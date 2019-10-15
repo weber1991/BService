@@ -71,7 +71,7 @@
                         <ul class="subnav">
                         	{% if user.power > 0 %}
                             <li><a href="javascript:;" date-src="{% url 'zzb:join_list_all' %}">报考查询（所有）</a></li>
-{#                            <li><a href="javascript:;" date-src="{% url 'zzb:zzb_temp' %}">报名审核</a></li>#}
+                            <li><a href="javascript:;" date-src="{% url 'zzb:join_faile_list' %}">报名审核</a></li>
                             <li><a href="javascript:;" date-src="{% url 'zzb:join_count' %}">报名统计</a></li>
                             {% endif %}
                         </ul>
