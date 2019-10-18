@@ -464,10 +464,12 @@ def joinjob_faile(req):
     if req.method == 'GET':
         return render(req, 'zzb/joinjob_faile.html',{})
     else:
-        idcard = req.POST.get('idcard')
+        idcard = req.POST.get('idcard', None)
         try:
-            join_state_idcard(idcard, '0')
-            return redirect('zzb:join_faile_list')
+            if join_state_idcard(idcard, '0'):
+                return redirect('zzb:join_faile_list')
+            else:
+                return render(req,'zzb/zzb_temp.html',{ })
         except:
             return redirect('zzb:join_faile_list')
 
@@ -500,7 +502,7 @@ def join_state_idcard(idcard, state):
     '''
     try:
         joinjob_userextend = zzUserExtend.objects.filter(idcard = idcard).first()
-        joinjob_get = zzJoinJob.objects.get(userextend = joinjob_userextend)
+        joinjob_get = zzJoinJob.objects.get(user = joinjob_userextend)
         joinjob_get.state = state
         joinjob_get.save()
         return True
@@ -890,7 +892,7 @@ def seat_excel(req):
 
 def seat_data_excel(req):
 
-    joinjoblist = zzJoinJob.objects.all().order_by('sweat')
+    joinjoblist = zzJoinJob.objects.exclude(state = '0').order_by('sweat')
     class_count = int(len(joinjoblist)/30) + 1 # 试室数
     class_count_index = 1
     ws = Workbook(encoding='utf-8')

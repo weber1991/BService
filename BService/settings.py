@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'BService.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'wechat',
-        'USER':'wechat',
-        'PASSWORD':'wechatuse123',
+        'NAME':'bservice',
+        'USER':'bservice_user',
+        'PASSWORD':'macbook123',
         'HOST':'127.0.0.1',
         'PORT':'3306',
         'charset':'uft8',

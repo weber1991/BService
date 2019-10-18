@@ -2,6 +2,8 @@ from django.db import models
 import datetime
 # Create your models here.
 
+
+
 class zzTime(models.Model):
     name = models.CharField(max_length=255, verbose_name='招聘项目名称')
     startbm = models.DateTimeField(verbose_name='开始报名时间', default=datetime.datetime.now())

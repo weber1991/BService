@@ -73,7 +73,7 @@ function goPage(pno,psize){
 <body onload="goPage(1,50)">
 <div class="title"><h2>审核不通过名单</h2></div>
 <div class="table-operate ue-clear">
-	<a href="{% url 'zzb:notice_add' %}" class="add">新增</a>
+	<a href="{% url 'zzb:join_faile' %}" class="add">新增</a>
 </div>
 <div class="table-box">
 	<table id="">
@@ -83,7 +83,6 @@ function goPage(pno,psize){
                 <th class="time">报考人</th>
                 <th class="time">身份证</th>
                 <th class="time">报考岗位</th>
-                <th class="time">报考状态</th>
                 <th class="process">操作</th>
             </tr>
         </thead>
@@ -94,7 +93,6 @@ function goPage(pno,psize){
                 <th class="time">{{ joinjob.user.name }}</th>
                 <td class="time">{{ joinjob.user.idcard }}</td>
                 <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.job.name }}</td>
-                <td class="time" style="border:1px dotted #c7c7c7;">{{ joinjob.state }}</td>
                 <td class="process">
                     <a href="{% url 'zzb:join_show' joinjob.id %}">查看详情&nbsp;&nbsp;</a>
                     {% if joinjob.state == '待审核' %}
