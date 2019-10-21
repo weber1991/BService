@@ -54,6 +54,7 @@ urlpatterns = [
 
     url(r'^zzb_bmb/(?P<id>[0-9]+)/$', print_joinjob, name='print_joinjob'), # 打印报名表
     url(r'^zzb_zkz/(?P<id>[0-9]+)/$', print_zkz, name='print_zkz'),
+    url(r'^zkz_set/$', zkz_set, name='zkz_set'), # 准考证配置
 
     url(r'^joinjob_excel/$', joinjob_excel, name='joinjob_excel'), # 导出数据
     url(r'^seat_excel/$', seat_excel, name='seat_excel'),  # 座位数据

@@ -8,3 +8,9 @@ class zzTimeAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'state')
     list_display_links = ['id', 'name']
     list_editable = ['state']
+
+@admin.register(zzBaseComfig)
+class zzBaseConfigAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'use')
+    list_display_links = ['id', 'name']
+    list_editable = ['use']

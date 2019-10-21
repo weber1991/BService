@@ -2,6 +2,27 @@ from django.db import models
 import datetime
 # Create your models here.
 
+class zzBaseComfig(models.Model):
+    '''
+    系统基础配置选项
+    name：基础配置的类型，char类型
+    content：配置内容，text类型
+    use：是否使用，波尔类型
+    hold0，hold1：保留字段
+    '''
+    name = models.CharField(max_length=255, verbose_name='配置名称')
+    content = models.TextField(verbose_name='配置内容')
+    use = models.BooleanField(default = False, verbose_name = '是否启动')
+    hold0 = models.CharField(max_length=255, verbose_name='预留字段0',null=True, blank=True)
+    hold1 = models.CharField(max_length=255, verbose_name='预留字段1',null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = '系统基础配置'
+        verbose_name_plural = verbose_name
+
 
 
 class zzTime(models.Model):

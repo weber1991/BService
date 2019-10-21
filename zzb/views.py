@@ -677,6 +677,9 @@ def paper_list(req):
     user = zzUser.objects.get(idcard=username)
     userextendlist = zzUserExtend.objects.filter(user=user)
     joinjoblist = zzJoinJob.objects.filter(user=userextendlist.first())
+    zkz_address, state = zzBaseComfig.objects.get_or_create(id = 1, name = '考试地点')
+    zkz_time, state = zzBaseComfig.objects.get_or_create(id = 2, name = '考试时间')
+    zkz_address_detail, state = zzBaseComfig.objects.get_or_create(id = 3, name = '考点地址')
     if len(joinjoblist) == 0:
         return redirect('zzb:join_job')
     joinjob = joinjoblist.first()
@@ -684,7 +687,7 @@ def paper_list(req):
         title = '通知'
         content = '经初步审核，您不符合招聘报名条件，详情可致电82816212。'
         return render(req, 'zzb/zzb_temp.html', {'title': title, 'content': content})
-    return render(req, 'zzb/paper_list.html', {'joinjob': joinjob})
+    return render(req, 'zzb/paper_list.html', {'joinjob': joinjob, 'zkz_address':zkz_address, 'zkz_time':zkz_time, 'zkz_address_detail':zkz_address_detail})
 
 
 
@@ -737,10 +740,13 @@ def print_zkz(req, id):
         return render(req, 'zzb/zzb_zkz.html', {})
 
     userextend = userextendlist.first()
+    zkz_address, state = zzBaseComfig.objects.get_or_create(id = 1, name = '考试地点')
+    zkz_time, state = zzBaseComfig.objects.get_or_create(id = 2, name = '考试时间')
+    zkz_address_detail, state = zzBaseComfig.objects.get_or_create(id = 3, name = '考点地址')
     if joinjob.user == userextend:
-        return render(req, 'zzb/zzb_zkz.html',{'joinjob':joinjob})
+        return render(req, 'zzb/zzb_zkz.html',{'joinjob':joinjob, 'zkz_address':zkz_address, 'zkz_time':zkz_time, 'zkz_address_detail':zkz_address_detail})
     if user.power > 0:
-        return render(req, 'zzb/zzb_zkz.html', {'joinjob':joinjob})
+        return render(req, 'zzb/zzb_zkz.html', {'joinjob':joinjob, 'zkz_address':zkz_address, 'zkz_time':zkz_time, 'zkz_address_detail':zkz_address_detail})
     return render(req, 'zzb/zzb_zkz.html', {})
 
 def joinjob_excel(req):
@@ -1274,5 +1280,33 @@ def cleanUser(req):
         user.delete()
     return redirect('zzb:database_set')
 
-def test_base(req):
-    pass
+def zkz_set(req):
+    if req.method == 'GET':
+        try:
+            zkz_address, state = zzBaseComfig.objects.get_or_create(id = 1, name = '考试地点')
+            zkz_time, state = zzBaseComfig.objects.get_or_create(id = 2, name = '考试时间')
+            zkz_address_detail, state = zzBaseComfig.objects.get_or_create(id = 3, name = '考点地址')
+        except:
+            zkz_address = zzBaseComfig.objects.create(id = 0, name = '考试地点', content = '待定', use = True)
+            zkz_time = zzBaseComfig.objects.create(id = 1, name = '考试时间', content = '待定', use = True)
+            zkz_address_detail, state = zzBaseComfig.objects.get_or_create(id = 3, name = '考点地址')
+        return render(req, 'zzb/zkz_set.html',{'zkz_address':zkz_address, 'zkz_time':zkz_time})
+    else:
+        zkz_address_get = req.POST.get('zkz_address', '')
+        zkz_time_get = req.POST.get('zkz_time', '')
+        zkz_address_detail_get = req.POST.get('zkz_address_detail', '')
+        zkz_address, state = zzBaseComfig.objects.get_or_create(id = 1, name = '考试地点')
+        zkz_time, state = zzBaseComfig.objects.get_or_create(id = 2, name = '考试时间')
+        zkz_address_detail, state = zzBaseComfig.objects.get_or_create(id = 3, name = '考点地址')
+
+        zkz_address.content = zkz_address_get
+        zkz_time.content = zkz_time_get
+        zkz_address_detail.content = zkz_address_detail_get
+
+        zkz_address.save()
+        zkz_time.save()
+        zkz_address_detail.save()
+        answer = '保存成功'
+        return render(req, 'zzb/zkz_set.html', {'zkz_address':zkz_address, 'zkz_time':zkz_time, 'zkz_address_detail':zkz_address_detail, 'answer':answer })
+        
+        

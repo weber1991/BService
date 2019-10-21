@@ -24,11 +24,11 @@
 						准考证号：{{ joinjob.zkzh|zkz_replace }}</br>
 						身份证号：{{ joinjob.user.idcard }}</br>
 						报考岗位：{{ joinjob.job.daihao }}</br>
-						考试地点：东莞市大朗第一中学</br>
-						地    址：东莞市大朗镇富民中路467号</br>
+						考试地点：{{ zzb_address.content }}}</br>
+						地    址：{{ zzb_address_detail.content }}</br>
 						试    室：{{ joinjob.sweat|get_class }}</br>
 						座 位 号：{{ joinjob.sweat|get_seat }}</br>
-						考试时间：2019年10月19日上午9:30-11:30</br>
+						考试时间：{{ zzb_time.content }}}</br>
 
 					</div>
 				</div>
