@@ -979,7 +979,7 @@ def chengji_list(req):
     elif pageDict["pageType"] == 'last':
         pageDict["nowPage"] -= 1
 
-    joinjoblist = zzJoinJob.objects.all()[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
+    joinjoblist = zzJoinJob.objects.exclude(state = 0)[(pageDict["nowPage"]-1)*PAGECOUNT:pageDict["nowPage"]*PAGECOUNT]
     firstCount = int((pageDict["nowPage"]-1)*PAGECOUNT)
 
     if req.method == 'GET':
@@ -1062,7 +1062,12 @@ def chengji_data(req):
     if len(joinjoblist) == 0:
         title = '查询失败'
         content = '查询失败，请确认是否参加考试或联系管理员。'
+        return render(req, 'zzb/zzb_temp.html', {'title': title, 'content': content})
     joinjob = joinjoblist.first()
+    if joinjob.state == '0':
+        title = '查询失败'
+        content = '没有查询到相关成绩。如有问题，请联系管理员。'
+        return render(req, 'zzb/zzb_temp.html', {'title': title, 'content': content})
     return render(req, 'zzb/chengji_data.html', {'joinjob':joinjob})
 
 # 填写个人资料
