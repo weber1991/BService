@@ -931,6 +931,7 @@ def seat_data_excel(req):
             seat_data_row = int((seat_index)/4)
             seat_data_col = (seat_index)%4
 
+    #！ 这里不应该将文件名写死。
     excel_path = "media\\zzb\\seatdatalist.xls"
     exist_file = os.path.exists(excel_path)
     if exist_file:
